@@ -25,7 +25,6 @@
     </style>
   </head>
   <body>
-
     <ul>
       <li><a href="WordCloud.html">Word Cloud</a></li>
       <li><a href="Diary.html">Diary</a></li>
@@ -36,52 +35,8 @@
       <li><a href="AboutUs.html">About Us</a></li>
       <li style="float:right"><a class="active" href="Profile.html">Profile</a></li>
     </ul>
-
   <div id="container"></div>
-        <script>
-          anychart.onDocumentReady(function () {
-            $.ajax(
-              'https://cdn.anychart.com/samples/tag-cloud/alice-in-wonderland/text.txt'
-            ).done(function (text) {
-              // create tag cloud
-              var chart = anychart.tagCloud();
-              // set data with settings
-              chart.data(text, {
-                mode: 'by-word',
-                minLength: 4,
-                maxItems: 200
-              });
-              // set chart title
-              chart
-                .title(
-                  "Top Things that you're grateful for!"
-                )
-                // set array of angles, by which words will be placed
-                .angles([0])
-                // enabled color range
-                .colorRange(true)
-                // set color scale
-                .colorScale(anychart.scales.ordinalColor())
-                // set settings for normal state
-                .normal({
-                  fontFamily: 'Times New Roman'
-                })
-                // set settings for hovered state
-                .hovered({
-                  fill: '#df8892'
-                })
-                // set settings for selected state
-                .selected({
-                  fill: '#df8892',
-                  fontWeight: 'bold'
-                });
+        <script src="../Scripts/bundle.js"></script>
 
-              // set container id for the chart
-              chart.container('container');
-              // initiate chart drawing
-              chart.draw();
-            });
-          });  
-        </script>
   </body>
 </html>
