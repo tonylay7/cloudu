@@ -1,9 +1,37 @@
 <!DOCTYPE html>
 <html>
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="home.css">
   <head>
+     <title>Welcome to CLOUDU</title>
+     
   </head>
   <body>
-    <a href="template.html">Login</a>
+  	    <body bgcolor="a8ffff">
+
+		<table>
+			<caption>Hello and Welcome!</caption>
+			<tr><td id="msg" colspan="2"><?php echo $msg; ?></td></tr>
+			<tr>
+				<td><label for="username">username:</label></td>
+				<td><input type="text" name="username" id="username"
+					      value="" required
+					      placeholder ="Enter username"></td>
+			</tr>
+			<tr>
+				<td><label for="password">password:</label></td>
+				<td><input type="password" name="password" id="password"
+					      value=""
+					      required placeholder ="Enter password"></td>
+		    </tr>
+		    <tr>
+		    	<td>&nbsp;</td>
+		    	<td><a href="template.html">Login</a>
+		    	<input type="reset" value="reset"></td>
+		    </tr>
+		</table>
+	</form>
+	
   </body>
 </html>
 

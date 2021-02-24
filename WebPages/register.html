@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<link href= "home.css" rel="stylesheet" type="text/css">
+		<title>Register for CLOUDU</title>
+	</head>
+
+	<body>
+		<header>
+	 		<h1 style="line-height: 80px;">Welcome to CLOUDU!</h1>
+	 	</header>
+	<table>
+		<tr>
+			<td><label for="username">Username:</label></td>
+			<td><input type="text" name="username" id="username"
+				    value="" required placeholder="Enter username"></td>
+		</tr>
+		<tr>
+			<td><label for="password">Password:</label></td>
+			<td><input type="password" name="password" id="password"
+				    value=""
+				    required placeholder="Enter password"></td>
+		</tr>
+		<tr>
+			<td><label for="confirm">Confirm password:</label></td>
+			<td><input type="password" name="confirm" id="confirm"
+				    value="" required placeholder="Confirm password"></td>
+		</tr>
+		<tr>
+			<td><label for="email">E-mail:</label></td>
+			<td><input type="email" name="email" id="email"
+				     value="" required placeholder="Enter e-mail address"></td>
+	    </tr>
+	    <tr>
+	    	<td>&nbsp;</td>
+	    	<td><input type="submit" value="Create Account"></td>
+	    </tr>
+	</table>
+<script>
+	var password = document.getElementById("password");
+	var confirm = document.getElementById("confirm");
+	var msg = document.getElementById("msg");
+
+	// use alert function or other to validate request: Username, Passwords
+</script>
+</body>
+</html>
