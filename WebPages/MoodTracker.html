@@ -1,20 +1,37 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <link rel="stylesheet" type="text/css" href="styles.css">
-    <meta charset="UTF-8">
-    <title>Mood Tracker</title>
-  </head>
-  <body>
-    <ul>
-      <li><a href="WordCloud.html">Word Cloud</a></li>
-      <li><a href="Diary.html">Diary</a></li>
-      <li><a href="Calendar.html">Calendar</a></li>
-      <li><a href="MoodTracker.html">Mood Tracker</a></li>
-      <li><a href="Resources.html">Resources</a></li>
-      <li><a href="Help.html">Help</a></li>
-      <li><a href="AboutUs.html">About Us</a></li>
-      <li style="float:right"><a class="active" href="Profile.html">Profile</a></li>
-    </ul>
-  </body>
-</html>
+	<head>
+		<link rel="stylesheet" type="text/css" href="styles.css">
+		<meta charset="UTF-8">
+		<title>Mood Tracker</title>
+		<script src="../MoodTrackerTest/chart.js/dist/Chart.min.js"></script>
+		<style>
+			div, canvas{
+				max-height: 20cm;
+			}
+		</style>
+	</head>
+	<body>
+		<ul>
+			<li><a href="WordCloud.html">Word Cloud</a></li>
+			<li><a href="Diary.html">Diary</a></li>
+			<li><a href="Calendar.html">Calendar</a></li>
+			<li><a href="MoodTracker.html">Mood Tracker</a></li>
+			<li><a href="Resources.html">Resources</a></li>
+			<li><a href="Help.html">Help</a></li>
+			<li><a href="AboutUs.html">About Us</a></li>
+			<li style="float:right"><a class="active" href="Profile.html">Profile</a></li>
+		</ul>
+		<div>
+            <canvas id="myChart"></canvas>
+        </div>
+        <br><br>
+        <button id="addData">Add Data</button>
+	    <button id="removeData">Remove Data</button>
+        <button id="reload">Reload</button>
+        <button id="prevWeek">Last Week</button>
+        <button id="nextWeek">Next Week</button>
+        <button id="viewMonth">View Month</button>
+		<script src="../MoodTrackerTest/graph.js"></script>
+	</body>
+	</html>
