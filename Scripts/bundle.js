@@ -298163,7 +298163,7 @@ function Unique(value, index, self) {
 }
 
 var pos = require('pos');
-var text = new pos.Lexer().lex("I made new friends at school which I am very happy about. Also since today was my birthday I received some nice gifts such as money from my uncle, clothes from my grandma and some jewellery from my mum! I appreciate all of their gifts.")
+var text = new pos.Lexer().lex(db_text);
 var tagger = new pos.Tagger();
 var taggedWords = tagger.tag(text);
 var filteredWords = [];
@@ -298172,7 +298172,9 @@ var data = [];
 for (i in taggedWords) {
     var taggedWord = taggedWords[i];
     if (taggedWord[1] == "NN" || taggedWord[1] == "NNS"){
+      if (taggedWord[0].length > 2){
         filteredWords.push(taggedWord[0])
+      } 
     }
 }
 var labels = filteredWords.filter(Unique);

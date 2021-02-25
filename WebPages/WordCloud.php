@@ -26,7 +26,7 @@
   </head>
   <body>
     <ul>
-      <li><a href="WordCloud.html">Word Cloud</a></li>
+      <li><a href="WordCloud.php">Word Cloud</a></li>
       <li><a href="Diary.html">Diary</a></li>
       <li><a href="Calendar.html">Calendar</a></li>
       <li><a href="MoodTracker.html">Mood Tracker</a></li>
@@ -36,7 +36,26 @@
       <li style="float:right"><a class="active" href="Profile.html">Profile</a></li>
     </ul>
   <div id="container"></div>
-        <script src="../Scripts/bundle.js"></script>
+    <?php
+      $database_host = "dbhost.cs.man.ac.uk";
+      $database_user = "n00575sm";
+      $database_pass = "Mozzer_2310";
+      $database_name = "2020_comp10120_x6";
+
+      $conn = mysqli_connect($database_host,$database_user,$database_pass,$database_name);
+      
+      if (!$conn){
+        die("connection failed: " . mysqli_connect_error());
+      }
+
+      $sql = "SELECT * FROM diaryentries";
+      $result = $conn->query($sql);
+      $row = $result->fetch_assoc();
+    ?>
+    <script type="text/javascript">
+      var db_text = "<?php echo $row['grateful_text']; ?>";
+    </script>
+    <script src="../Scripts/bundle.js"></script>
 
   </body>
 </html>
