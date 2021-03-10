@@ -7,27 +7,51 @@ var pos = require('pos');
 var text = new pos.Lexer().lex(db_text);
 var tagger = new pos.Tagger();
 var taggedWords = tagger.tag(text);
-var filteredWords = [];
+var finalWords = [];
+var commonDeletedWords = ["are"] // common words that are detected by the tagger as nouns but aren't useful
 var data = [];
+
+// convert the raw data into lists
+var addWords = db_addwords.split(", ");
+var removeWords = db_removewords.split(", ");
+
 // retrieve words that are singular nouns or plural nouns
 for (i in taggedWords) {
-    var taggedWord = taggedWords[i];
-    if (taggedWord[1] == "NN" || taggedWord[1] == "NNS"){
-      if (taggedWord[0].length > 2){
-        filteredWords.push(taggedWord[0])
-      } 
-    }
+  var taggedWord = taggedWords[i];
+  if (taggedWord[1] == "NN" || taggedWord[1] == "NNS"){
+    if (taggedWord[0].length > 2){
+      finalWords.push(taggedWord[0])
+    } 
+  }
 }
-var labels = filteredWords.filter(Unique);
+// remove common words that aren't useful
+finalWords = finalWords.filter( function(x) {
+  return commonDeletedWords.indexOf(x) < 0;
+} );
+
+// remove words as specified by the user
+finalWords = finalWords.filter( function(x) {
+  return removeWords.indexOf(x) < 0;
+} );
+
+// add words as specified by the user
+for (i in addWords){
+  if (i in text){
+    finalWords.push(addWords[i])
+  }
+}
+// ensuring that only one instance of the word is displayed in the wordcloud
+var labels = finalWords.filter(Unique);
+
 // create an array of objects for the data
 for (i in labels){
     obj = {"x": labels[i], "value": 0};
     data.push(obj);
 }
-// increment the value of each object for every occurence of the word in filteredWords
-for (i in filteredWords){
+// increment the value of each object for every occurence of the word in finalWords
+for (i in finalWords){
     for (j in data){
-        if (filteredWords[i] == data[j].x){
+        if (finalWords[i] == data[j].x){
             data[j].value += 1;
         }
     }

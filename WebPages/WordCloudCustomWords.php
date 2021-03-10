@@ -49,6 +49,10 @@
         -ms-transform: translate(-50%, -50%);
         transform: translate(-50%, -50%);
       }
+      .centerboxes {
+        transform: translate(75.5%, 0%);
+        display: inline-block;
+      }
       textarea {
         resize: none;
       }
@@ -71,10 +75,26 @@
         <input class='myButton' type='button' value='Save' onclick='showAnswer()'>
       </div>
     </div>
+    <?php
+      $database_host = "dbhost.cs.man.ac.uk";
+      $database_user = "n00575sm";
+      $database_pass = "Mozzer_2310";
+      $database_name = "2020_comp10120_x6";
+
+      $conn = mysqli_connect($database_host,$database_user,$database_pass,$database_name);
+      
+      if (!$conn){
+        die("connection failed: " . mysqli_connect_error());
+      }
+
+      $sqlfetch = "SELECT * FROM customwords WHERE user_id = 1";
+      $fetchresult = $conn->query($sqlfetch);
+      $fetchrow = $fetchresult->fetch_assoc();
+    ?>
     <div id="container">
-      <div class="center">
-        <textarea class="textarea" id="addwords" name="addwords" rows="20" cols="50"></textarea>
-        <textarea class="textarea" id="removewords" name="removewords" rows="20" cols="50"></textarea>
+      <div class="centerboxes">
+        <textarea class="textarea" id="addwords" name="addwords" rows="20" cols="50"><?php echo $fetchrow['addwords']; ?></textarea>
+        <textarea class="textarea" id="removewords" name="removewords" rows="20" cols="50"><?php echo $fetchrow['removewords']; ?></textarea>
       </div>
     </div>
   </body>
