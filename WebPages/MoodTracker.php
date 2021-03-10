@@ -119,16 +119,16 @@
             function getWeekValues(week) {
                 var output = [];
                 var buffer,buffer2 = "";
-                if (week.getMonth()<9){
-                    buffer = "0";
-                }
-                if (week.getDate() < 10){
-                    buffer2 = "0";
-                }
-                var dateStart = week.getFullYear() + "-" + buffer + (week.getMonth()+1)  + "-" + buffer2 + week.getDate();
-                var index = moodValueDates.indexOf(dateStart);
                 for(i=0;i<7;i++){
-                    output.push(moodValues[index+i]);
+                    if (week.getMonth()<9){
+                    buffer = "0";
+                    }
+                    if (week.getDate() < 10){
+                        buffer2 = "0";
+                    }
+                    var dateStart = week.getFullYear() + "-" + buffer + (week.getMonth()+1)  + "-" + buffer2 + (week.getDate()+i);
+                    var index = moodValueDates.indexOf(dateStart);
+                    output.push(moodValues[index]);
                 }
                 console.log(output);
                 return output;
@@ -348,7 +348,7 @@
                         if (month<9){
                             buffer = "0";
                         }
-                        if (i < 10){
+                        if (i < 9){
                             buffer2 = "0";
                         }
                         var day = year + "-" + buffer + (month+1)  + "-" + buffer2 + (i+1);
