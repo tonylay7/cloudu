@@ -2,6 +2,65 @@
 session_start();
 ?>
 
+<?php
+  $database_host = "dbhost.cs.man.ac.uk";
+  $database_user = "n00575sm";
+  $database_pass = "Mozzer_2310";
+  $database_name = "2020_comp10120_x6";
+
+  $conn = mysqli_connect($database_host,$database_user,$database_pass,$database_name);
+  
+  if (!$conn){
+    die("Connection failed: " . mysqli_connect_error());
+  }
+?>
+
+<?php
+
+  function test_input($data) {
+  $data = trim($data);
+  $data = stripslashes($data);
+  $data = htmlspecialchars($data);
+  return $data;
+  }
+
+  $username = $password = $error = "";
+
+	if (isset($_POST["username"])) 
+	{	
+		$stmt = $conn->prepare("SELECT `id`,`email`, `password` FROM `users` WHERE `username`= ?");
+		$stmt->bind_param('s', $username);
+
+		$username = test_input($_POST["username"]);
+  		$password = test_input($_POST["password"]);
+  		$stmt->execute();
+
+		$result = $stmt->get_result();
+
+		if($result->num_rows == 0) {
+			$error = "Username does not exist.";
+		}
+		else{
+		    while($row = $result->fetch_assoc())
+		    {	
+		    	$user_password = $row['password'];
+		    	$salt = substr($user_password, -4);
+				$hash = substr($user_password, 0, -4);
+
+		    	if (hash('sha512', $password . $salt) == $hash){
+		    		$_SESSION["user_id"] = $row['id'];
+		    		$_SESSION["username"] = $row['username'];
+					header('Location: WordCloud.html');
+				}
+				else{
+					$error = "Password is incorrect";
+				}
+		    }
+		}
+	}
+
+?>
+
 <head>
 	<meta charset="utf-8">
 	<link rel="stylesheet" type="text/css" href="home.css">
@@ -46,24 +105,25 @@ session_start();
 	</div>
 	</div>
 	<div style="position:absolute; top: 0; right:20px;width:30%; height:90%; padding:0">
-		<form action="template.html" method="post">
+		<form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">
   		<table>
+  			<tr><td colspan="2"><?php echo $error;?></td>></tr>
 			<tr>
 				<td><label for="username">Username:</label></td>
 				<td><input type="text" name="username" id="username"
-					      value="" 
+					      value="<?php echo $username;?>" 
 					      placeholder ="Enter username"></td>
 			</tr>
 			<tr>
 				<td><label for="password">Password:</label></td>
 				<td><input type="password" name="password" id="password"
-					      value=""
+					      value="<?php echo $password;?>"
 					      placeholder ="Enter password"></td>
 		    </tr>
 		    <br>
 		    <tr>
 		    	<td><input type="submit" value="Login" ></td>
-		    	<td><input type="submit" formaction="register.php" value="Register as New User" method="post"></td>
+		    	<td><button type="submit" formaction="register.php">Register as New User</button></td>
 		    </tr>
 		</table>
 		</form>

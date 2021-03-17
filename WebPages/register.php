@@ -9,8 +9,6 @@
   if (!$conn){
     die("connection failed: " . mysqli_connect_error());
   }
-
-  echo "Connected successfully";
 ?>
 
 <?php
@@ -28,8 +26,13 @@ function checkdb($username, $email, $password){
 	global $conn;
 	global $error;
 
-	$sql = "SELECT `email`, `username` FROM `users` WHERE `username`='".$username."' OR `email`='".$email."'";
-	$result = $conn->query($sql);
+	$stmt = $conn->prepare("SELECT email, username FROM users WHERE username=? OR email=?");
+	$stmt->bind_param('ss', $username, $email);
+	$stmt->execute();
+	$result = $stmt->get_result();
+
+	// $sql = "SELECT `email`, `username` FROM `users` WHERE `username`='".$username."' OR `email`='".$email."'";
+	// $result = $conn->query($sql);
 
 	if($result->num_rows >= 1) {
 	    while($row = $result->fetch_assoc())
@@ -43,21 +46,28 @@ function checkdb($username, $email, $password){
 	    }
 	}
 	else{
-  		$sql = "INSERT INTO users (username, email, password)
-		VALUES ('$username', '$email', '$password')";
+		$salt = str_pad((string) rand(1, 1000), 4, '0', STR_PAD_LEFT);
+		$user_password = hash('sha512', $password . $salt) . $salt;
+		$stmt = $conn->prepare("INSERT INTO users (username, email, password)VALUES (?, ?, ?)");
+		$stmt->bind_param('sss', $username, $email, $user_password);
 
-		if (mysqli_query($conn, $sql)) {
-	  		echo "New record created successfully";
+  		// $sql = "INSERT INTO users (username, email, password)VALUES ('$username', '$email', '$password')";
+
+		if ($stmt->execute()) {
+	  		$_SESSION["user_id"] = $row['id'];
+		    $_SESSION["username"] = $row['username'];
+			header('Location: Help.html');
 		} else {
-		  echo "Error: " . $sql . "<br>" . $conn->error;
+		  echo "Error: " . $conn->error;
 		}
   	}
 
 }
 
-if (isset($_POST["username"])) {
+if (isset($_POST["confirm"])) {
   $username = test_input($_POST["username"]);
   $password = test_input($_POST["password"]);
+
   $confirm = test_input($_POST["confirm"]);
   $email = test_input($_POST["email"]);
 
@@ -99,23 +109,24 @@ if (isset($_POST["username"])) {
 	<table>
 		<tr>
 			<td><label for="username">Username:</label></td>
-			<td><input type="text" name="username" id="username" value="<?php echo $username;?>" required></td>
+			<td><input type="text" name="username" id="username" value="<?php echo $username;?>" required maxlength="12"></td>
 		</tr>
 		<tr>
 			<td><label for="password">Password:</label></td>
-			<td><input type="password" name="password" id="password" value="<?php echo $password;?>" required></td>
+			<td><input type="password" name="password" id="password" value="<?php echo $password;?>" required maxlength="16"></td>
 		</tr>
 		<tr>
 			<td><label for="confirm">Confirm password:</label></td>
-			<td><input type="password" name="confirm" id="confirm" value="<?php echo $confirm;?>" required></td>
+			<td><input type="password" name="confirm" id="confirm" value="<?php echo $confirm;?>" required maxlength="18"></td>
 		</tr>
 		<tr>
 			<td><label for="email">E-mail:</label></td>
 			<td><input type="email" name="email" id="email"
-				     value="<?php echo $email;?>" required></td>
+				     value="<?php echo $email;?>" required
+				     maxlength="40"></td>
 	    </tr>
 	    <tr>
-	    	<td colspan="2"><input type="checkbox" id="terms" name="terms" value="terms">
+	    	<td colspan="2"><input type="checkbox" id="terms" name="terms" value="terms" required>
 	    		By creating an account you agree to our <a href="#">Terms & Conditions</a>.</td>
 	    </tr>
 	    <tr>
