@@ -359,6 +359,10 @@
             document.getElementById('changeView').addEventListener('click', function() {
                 if(document.getElementById('changeView').innerHTML == "View Month"){
                     document.getElementById('changeView').innerHTML = "View Week";
+                    document.getElementById('prevWeeks').disabled = true;
+                    document.getElementById('prevWeek').disabled = true;
+                    document.getElementById('nextWeek').disabled = true;
+                    document.getElementById('nextWeeks').disabled = true;
                     config.data.datasets.splice(0, 1);
 
                     var day = "";
@@ -498,6 +502,10 @@
                 }
                 else{
                     document.getElementById('changeView').innerHTML = "View Month";
+                    document.getElementById('prevWeeks').disabled = false;
+                    document.getElementById('prevWeek').disabled = false;
+                    document.getElementById('nextWeek').disabled = false;
+                    document.getElementById('nextWeeks').disabled = false;
                     var d = new Date();
                     d.setDate(d.getDate() - (d.getDay() + 6) % 7);
                     currentWeek = d;
