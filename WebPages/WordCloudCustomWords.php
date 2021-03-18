@@ -50,8 +50,8 @@
         transform: translate(-50%, -50%);
       }
       .centerboxes {
-        transform: translate(75.5%, 0%);
-        display: inline-block;
+        display: block;
+        text-align: center;
       }
       textarea {
         resize: none;
