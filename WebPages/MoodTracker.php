@@ -277,6 +277,25 @@
                 window.myLine.update();
             });
 
+            document.getElementById('prevWeeks').addEventListener('click', function() {
+                config.data.datasets.splice(0, 1);
+                window.myLine.update();
+                
+                currentWeek.setDate(currentWeek.getDate()-28);
+                console.log(currentWeek)
+                var newDataset = {
+                    label: 'Week Starting: ' + currentWeek.toDateString(),
+                    backgroundColor: 'rgba(133, 207, 240)',
+                    borderColor: 'rgba(133, 207, 240)',
+                    data: getWeekValues(currentWeek),
+                    fill: false
+                };
+                
+                console.log('success')   
+                config.data.datasets.push(newDataset)
+                window.myLine.update();
+            });
+
             document.getElementById('nextWeek').addEventListener('click', function() {
                 currentWeek.setDate(currentWeek.getDate()+7);
                 console.log(currentWeek)
@@ -287,6 +306,36 @@
                 if (currentWeek > d) {
                     console.log("Can't display data that hasn't happened yet")
                     currentWeek.setDate(currentWeek.getDate()-7);
+                    console.log(currentWeek)
+                }
+                else {
+                    config.data.datasets.splice(0, 1);
+                    window.myLine.update();
+
+                    var newDataset = {
+                        label: 'Week Starting: ' + currentWeek.toDateString(),
+                        backgroundColor: 'rgba(133, 207, 240)',
+                        borderColor: 'rgba(133, 207, 240)',
+                        data: getWeekValues(currentWeek),
+                        fill: false
+                    };
+                    
+                    console.log('success')   
+                    config.data.datasets.push(newDataset)
+                    window.myLine.update();
+                }
+            });
+
+            document.getElementById('nextWeeks').addEventListener('click', function() {
+                currentWeek.setDate(currentWeek.getDate()+28);
+                console.log(currentWeek)
+
+                var d = new Date();
+                d.setDate(d.getDate() - (d.getDay() + 6) % 7);
+                console.log(d);
+                if (currentWeek > d) {
+                    console.log("Can't display data that hasn't happened yet")
+                    currentWeek.setDate(currentWeek.getDate()-28);
                     console.log(currentWeek)
                 }
                 else {
