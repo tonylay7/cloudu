@@ -50,7 +50,7 @@ session_start();
 		    	if (hash('sha512', $password . $salt) == $hash){
 		    		$_SESSION["user_id"] = $row['id'];
 		    		$_SESSION["username"] = $row['username'];
-					header('Location: WordCloud.html');
+					header('Location: WordCloud.php');
 				}
 				else{
 					$error = "Password is incorrect";
