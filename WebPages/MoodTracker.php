@@ -6,11 +6,66 @@
 		<title>Mood Tracker</title>
 		<script src="../MoodTrackerTest/chart.js/dist/Chart.min.js"></script>
 		<style>
-			div, canvas{
-				width: 80%;
-				max-height: 20cm;
+            #chartBackground{
+                margin: 0 auto;
+                background-color: rgb(137, 207, 240);
+                max-width: 90%;
+            }
+
+			#myChart{
 				margin: 0 auto;
+                max-width: 90%;
+                border: 2px solid darkgrey;
+                background-color: white;
+                padding: 5px;
 			}
+
+            #graphTitle{
+                margin: 0 auto;
+                color: rgb(80,80,80);
+                background-color: white;
+                max-width: 25%;
+                border: 2px solid darkgrey;
+                border-bottom: none;
+                padding: 2px;
+                font-size: 1.2vw;
+                height: 2vw;
+                text-align: center;
+                line-height: 2vw;
+            }
+            #buttons{
+                margin: 0 auto;
+                display: block;
+                /* background-color: white;
+                max-width: 25%;
+                border: 2px solid darkgrey;
+                border-top: none;
+                padding: 2px;
+                padding-bottom: 4px;
+                font-size: 1.2vw;
+                height: 2vw;
+                text-align: center;
+                line-height: 2vw; */
+            }
+            #buttons button{
+                background-color: rgb(137, 207, 240);;
+                color: white;
+                white-space: nowrap;
+                text-align: center;
+                font-size: 1vw;
+                padding: 5px;
+                height: 2vw;
+                border: 0px;
+            }
+            #buttons button:not(:last-child){
+                border-right: none;
+            }
+            .moveBtns{
+                width: 2vw;
+            }
+            #buttons button:hover{
+                background-color: lightgrey;
+            }
 		</style>
 	</head>
 	<body>
@@ -24,17 +79,21 @@
 			<li><a href="AboutUs.html">About Us</a></li>
 			<li style="float:right"><a class="active" href="Profile.html">Profile</a></li>
 		</ul>
-		<p></p>
-		<div>
+        <br><br><br>
+        <div id="chartBackground">
+            <br>
+            <div id="graphTitle">Week Starting: Example</div>
             <canvas id="myChart"></canvas>
-        </div>
+            <div id="buttons">
+                <button id="prevWeeks" class="moveBtns" title="Go back 4 Weeks"><<</button>
+                <button id="prevWeek" class="moveBtns" title="Go back a Week"><</button>
+                <button id="changeView" class="mainBtn" title="Switch between viewing the Month or the Current Week">View Month</button>
+                <button id="nextWeek" class="moveBtns" title="Go forwards a Week">></button>
+                <button id="nextWeeks" class="moveBtns" title="Go forwards 4 Weeks">>></button>
+            </div>
+            <br>
+        </div>  
         <br><br>
-        <button id="addData">Add Data</button>
-	    <button id="removeData">Remove Data</button>
-        <button id="reload">Reload</button>
-        <button id="prevWeek">Last Week</button>
-        <button id="nextWeek">Next Week</button>
-        <button id="changeView">View Month</button>
         <?php
             $database_host = "dbhost.cs.man.ac.uk";
             $database_user = "n00575sm";
@@ -57,6 +116,7 @@
             }
         ?>
 		<script>
+            var currentColor = "white";
             var moodValues = <?php echo json_encode($data); ?>;
             var moodValueDates = <?php echo json_encode($date); ?>;
             const DAYS = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
@@ -75,8 +135,8 @@
                         label: 'Week Starting: ' + currentWeek.toDateString(),
                         data: getWeekValues(currentWeek),
                         fill: false,
-                        backgroundColor: 'rgba(133, 207, 240)',
-                        borderColor: 'rgba(133, 207, 240)',
+                        backgroundColor: 'rgba(137, 207, 240)',
+                        borderColor: 'rgba(137, 207, 240)',
                     }]
                 },
                 options: {
@@ -89,6 +149,16 @@
                     tooltips: {
                         mode: 'index',
                         intersect: false,
+                        caretSize: 4,
+                        callbacks: {
+                            title: function(tooltipItems, config) {
+                                return tooltipItems[0].xLabel;
+                            },
+                            label : function(tooltipItem, config) {
+                                // test(config.datasets[tooltipItem.datasetIndex].data[tooltipItem.index]);
+                                return 'Mood Value: ' + config.datasets[tooltipItem.datasetIndex].data[tooltipItem.index];
+                            }
+                        }
                     },
                     hover: {
                         mode: 'nearest',
@@ -116,6 +186,49 @@
                 }
             };
 
+            // function colorShift(currentColor, nextColor){
+            //     var colors = [currentColor, nextColor];
+            //     var currentIndex = 0;
+
+            //     setInterval(function () {
+            //         document.getElementById("chartBackground").style.backgroundColor = colors[currentIndex];
+            //         currentIndex++;
+            //         if (currentIndex == undefined || currentIndex >= colors.length) {
+            //             currentIndex = 0;
+            //         }
+            //     }, 1000);
+            //     console.log("wut");
+            // }
+
+            // // function graphColor(colorValue){
+            // //     Chart.plugins.register({
+            // //     beforeDraw: function(chartInstance, easing) {
+            // //         var ctx = chartInstance.chart.ctx;
+            // //         ctx.fillStyle = colorValue;
+            // //         var chartArea = chartInstance.chartArea;
+            // //         ctx.fillRect(chartArea.left, chartArea.top, chartArea.right - chartArea.left, chartArea.bottom - chartArea.top);
+            // //     }
+            // //     });
+            // // }
+
+            // function test(dataPoint){
+            //     var colorValue;
+            //     if(dataPoint < 25){
+            //         colorValue = "blue";
+            //     }
+            //     else if(dataPoint < 50){
+            //         colorValue = "lightblue";
+            //     }
+            //     else if(dataPoint < 75){
+            //         colorValue = "green";
+            //     }
+            //     else{
+            //         colorValue = "yellow";
+            //     }
+            //     colorShift(currentColor, colorValue);
+            //     currentColor = colorValue;
+            // };
+
             function getWeekValues(week) {
                 var output = [];
                 var buffer,buffer2 = "";
@@ -132,49 +245,17 @@
                 }
                 console.log(output);
                 return output;
-            }
+            };
 
             function getDayValue(day) {
                 var index = moodValueDates.indexOf(day);
                 return moodValues[index];
-            }
+            };
 
             window.onload = function() {
                 var ctx = document.getElementById('myChart').getContext('2d');
                 window.myLine = new Chart(ctx, config);
             };
-
-            document.getElementById('addData').addEventListener('click', function() {
-                config.data.datasets.forEach(function(dataset) {
-                    if (dataset.data.length < 7){
-                        dataset.data.push(Math.floor(Math.random() * 101));
-                        console.log('Data added')
-                    }
-                })
-                window.myLine.update();
-            });
-
-            document.getElementById('removeData').addEventListener('click', function() {
-                config.data.datasets.forEach(function(dataset) {
-                    if (dataset.data.length > 0){
-                        dataset.data.pop();
-                        console.log('Data removed')
-                    }
-                })
-                window.myLine.update();
-            });
-
-            document.getElementById('reload').addEventListener('click', function() {
-                config.data.datasets.forEach(function(dataset) {
-                    var temp = dataset.data;
-                    dataset.data = [];
-                    window.myLine.update();
-                    for (i = 0; i < temp.length; i++) {
-                        dataset.data.push(temp[i])
-                        window.myLine.update();
-                    }
-                })
-            });
 
             document.getElementById('prevWeek').addEventListener('click', function() {
                 config.data.datasets.splice(0, 1);
