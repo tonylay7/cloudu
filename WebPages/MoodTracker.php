@@ -8,7 +8,7 @@
 		<style>
             #chartBackground{
                 margin: 0 auto;
-                background-color: #88B4E3;
+                background-color: rgb(137, 207, 240);
                 max-width: 90%;
             }
 
@@ -49,7 +49,7 @@
                 line-height: 2vw; */
             }
             #buttons button{
-                background-color: #88B4E3;
+                background-color: rgb(137, 207, 240);
                 color: white;
                 white-space: nowrap;
                 text-align: center;
