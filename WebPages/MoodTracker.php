@@ -85,14 +85,12 @@
             <br>
             <div id="graphTitle">Week Starting: Example</div>
             <canvas id="myChart"></canvas>
-            <div class="text-center">
-                <div id="buttons">
-                    <button id="prevWeeks" class="moveBtns" title="Go back 4 Weeks"><<</button>
-                    <button id="prevWeek" class="moveBtns" title="Go back a Week"><</button>
-                    <button id="changeView" class="mainBtn" title="Switch between viewing the Month or the Current Week">View Month</button>
-                    <button id="nextWeek" class="moveBtns" title="Go forwards a Week">></button>
-                    <button id="nextWeeks" class="moveBtns" title="Go forwards 4 Weeks">>></button>
-                </div>
+            <div id="buttons">
+                <button id="prevWeeks" class="moveBtns" title="Go back 4 Weeks"><<</button>
+                <button id="prevWeek" class="moveBtns" title="Go back a Week"><</button>
+                <button id="changeView" class="mainBtn" title="Switch between viewing the Month or the Current Week">View Month</button>
+                <button id="nextWeek" class="moveBtns" title="Go forwards a Week">></button>
+                <button id="nextWeeks" class="moveBtns" title="Go forwards 4 Weeks">>></button>
             </div>
             <br>
         </div>  
