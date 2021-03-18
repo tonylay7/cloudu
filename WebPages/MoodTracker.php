@@ -8,7 +8,7 @@
 		<style>
             #chartBackground{
                 margin: 0 auto;
-                background-color: rgb(137, 207, 240);
+                background-color: #88B4E3;
                 max-width: 90%;
             }
 
@@ -48,7 +48,7 @@
                 line-height: 2vw; */
             }
             #buttons button{
-                background-color: rgb(137, 207, 240);;
+                background-color: #88B4E3;
                 color: white;
                 white-space: nowrap;
                 text-align: center;
@@ -70,10 +70,10 @@
 	</head>
 	<body>
 		<ul>
-			<li><a href="WordCloud.html">Word Cloud</a></li>
+			<li><a href="WordCloud.php">Word Cloud</a></li>
 			<li><a href="Diary.html">Diary</a></li>
 			<li><a href="Calendar.html">Calendar</a></li>
-			<li><a href="MoodTracker.html">Mood Tracker</a></li>
+			<li><a href="MoodTracker.php">Mood Tracker</a></li>
 			<li><a href="Resources.html">Resources</a></li>
 			<li><a href="Help.html">Help</a></li>
 			<li><a href="AboutUs.html">About Us</a></li>
