@@ -1,0 +1,57 @@
+#chartBackground{
+    margin: 0 auto;
+    background-color: rgb(137, 207, 240);
+    max-height: 80%;
+    max-width: 90%;
+}
+
+#myChart{
+    margin: 0 auto;
+    max-height: 70vh;
+    max-width: 90%;
+    border: 2px solid darkgrey;
+    background-color: white;
+    padding: 5px;
+}
+
+#graphTitle{
+    margin: 0 auto;
+    color: rgb(80,80,80);
+    background-color: white;
+    max-width: 25%;
+    border: 2px solid darkgrey;
+    border-bottom: none;
+    padding: 2px;
+    font-size: 1.2vw;
+    height: 2vw;
+    text-align: center;
+    line-height: 2vw;
+}
+#buttons{
+    margin: 0 auto;
+    display: block;
+    text-align: center;
+}
+#buttons button{
+    background-color: rgb(137, 207, 240);
+    color: white;
+    white-space: nowrap;
+    text-align: center;
+    font-size: 1vw;
+    padding: 5px;
+    height: 2vw;
+    border: 0px;
+}
+#buttons button:not(:last-child){
+    border-right: none;
+}
+.moveBtns{
+    width: 2vw;
+}
+#buttons button:hover{
+    background-color: lightgrey;
+}
+html{
+    height: 100%;
+    overflow: hidden;
+}
