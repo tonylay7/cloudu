@@ -30,11 +30,13 @@
             #chartBackground{
                 margin: 0 auto;
                 background-color: rgb(137, 207, 240);
+                max-height: 80%;
                 max-width: 90%;
             }
 
 			#myChart{
 				margin: 0 auto;
+                max-height: 70vh;
                 max-width: 90%;
                 border: 2px solid darkgrey;
                 background-color: white;
@@ -88,6 +90,10 @@
             #buttons button:hover{
                 background-color: lightgrey;
             }
+            html{
+                height: 100%;
+                overflow: hidden;
+            }
 		</style>
 	</head>
 	<body>
@@ -102,19 +108,21 @@
 			<li style="float:right"><a class="active" href="Profile.html"><?php echo $current_username ?></a></li>
 		</ul>
         <br><br><br>
-        <div id="chartBackground">
-            <br>
-            <div id="graphTitle">Week Starting: Example</div>
-            <canvas id="myChart"></canvas>
-            <div id="buttons">
-                <button id="prevWeeks" class="moveBtns" title="Go back 4 Weeks"><<</button>
-                <button id="prevWeek" class="moveBtns" title="Go back a Week"><</button>
-                <button id="changeView" class="mainBtn" title="Switch between viewing the Month or the Current Week">View Month</button>
-                <button id="nextWeek" class="moveBtns" title="Go forwards a Week">></button>
-                <button id="nextWeeks" class="moveBtns" title="Go forwards 4 Weeks">>></button>
-            </div>
-            <br>
-        </div>  
+        <div id="boundingBox">
+            <div id="chartBackground">
+                <br>
+                <div id="graphTitle">Week Starting: Example</div>
+                <canvas id="myChart"></canvas>
+                <div id="buttons">
+                    <button id="prevWeeks" class="moveBtns" title="Go back 4 Weeks"><<</button>
+                    <button id="prevWeek" class="moveBtns" title="Go back a Week"><</button>
+                    <button id="changeView" class="mainBtn" title="Switch between viewing the Month or the Current Week">View Month</button>
+                    <button id="nextWeek" class="moveBtns" title="Go forwards a Week">></button>
+                    <button id="nextWeeks" class="moveBtns" title="Go forwards 4 Weeks">>></button>
+                </div>
+                <br>
+            </div>  
+        </div>
         <br><br>
         <?php
             // $current_user = 1; //NEED TO GET THIS
@@ -545,4 +553,6 @@
             });
 		</script>
 	</body>
+    <footer>
+    </footer>
 	</html>
