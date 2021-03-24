@@ -139,12 +139,13 @@
             console.log(moodValues);
             console.log(moodValueDates);
 
+            document.getElementById('graphTitle').innerHTML = "Week Starting: " + currentWeek.toDateString();
+
             var config = {
                 type: 'line',
                 data: {
                     labels: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
                     datasets: [{
-                        label: 'Week Starting: ' + currentWeek.toDateString(),
                         data: getWeekValues(currentWeek),
                         fill: false,
                         backgroundColor: 'rgba(137, 207, 240)',
@@ -194,6 +195,9 @@
                     },
                     animation: {
                         duration: 2000,
+                    },
+                    legend: {
+                        display: false,
                     }
                 }
             };
@@ -276,12 +280,12 @@
                 currentWeek.setDate(currentWeek.getDate()-7);
                 console.log(currentWeek)
                 var newDataset = {
-                    label: 'Week Starting: ' + currentWeek.toDateString(),
                     backgroundColor: 'rgba(133, 207, 240)',
                     borderColor: 'rgba(133, 207, 240)',
                     data: getWeekValues(currentWeek),
                     fill: false
                 };
+                document.getElementById('graphTitle').innerHTML = "Week Starting: " + currentWeek.toDateString();
                 
                 console.log('success')   
                 config.data.datasets.push(newDataset)
@@ -295,12 +299,12 @@
                 currentWeek.setDate(currentWeek.getDate()-28);
                 console.log(currentWeek)
                 var newDataset = {
-                    label: 'Week Starting: ' + currentWeek.toDateString(),
                     backgroundColor: 'rgba(133, 207, 240)',
                     borderColor: 'rgba(133, 207, 240)',
                     data: getWeekValues(currentWeek),
                     fill: false
                 };
+                document.getElementById('graphTitle').innerHTML = "Week Starting: " + currentWeek.toDateString();
                 
                 console.log('success')   
                 config.data.datasets.push(newDataset)
@@ -324,12 +328,12 @@
                     window.myLine.update();
 
                     var newDataset = {
-                        label: 'Week Starting: ' + currentWeek.toDateString(),
                         backgroundColor: 'rgba(133, 207, 240)',
                         borderColor: 'rgba(133, 207, 240)',
                         data: getWeekValues(currentWeek),
                         fill: false
                     };
+                    document.getElementById('graphTitle').innerHTML = "Week Starting: " + currentWeek.toDateString();
                     
                     console.log('success')   
                     config.data.datasets.push(newDataset)
@@ -354,12 +358,12 @@
                     window.myLine.update();
 
                     var newDataset = {
-                        label: 'Week Starting: ' + currentWeek.toDateString(),
                         backgroundColor: 'rgba(133, 207, 240)',
                         borderColor: 'rgba(133, 207, 240)',
                         data: getWeekValues(currentWeek),
                         fill: false
                     };
+                    document.getElementById('graphTitle').innerHTML = "Week Starting: " + currentWeek.toDateString();
                     
                     console.log('success')   
                     config.data.datasets.push(newDataset)
@@ -503,13 +507,13 @@
                     }
 
                     var newDataset = {
-                            label: MONTHS[month],
                             labels: DaysMonth,
                             backgroundColor: 'rgba(133, 207, 240)',
                             borderColor: 'rgba(133, 207, 240)',
                             data: dataMonth,
                             fill: false
                         };
+                        document.getElementById('graphTitle').innerHTML = MONTHS[month];
                 }
                 else{
                     document.getElementById('changeView').innerHTML = "View Month";
@@ -529,12 +533,12 @@
                     }
 
                     var newDataset = {
-                        label: 'Week Starting: ' + currentWeek.toDateString(),
                         backgroundColor: 'rgba(133, 207, 240)',
                         borderColor: 'rgba(133, 207, 240)',
                         data: getWeekValues(currentWeek),
                         fill: false
                     }; 
+                    document.getElementById('graphTitle').innerHTML = "Week Starting: " + currentWeek.toDateString();
                 }
                 config.data.datasets.push(newDataset)
                 window.myLine.update();
