@@ -1,3 +1,24 @@
+<?php
+    session_start();
+    $current_user = $_SESSION["user_id"];
+    
+    $database_host = "dbhost.cs.man.ac.uk";
+    $database_user = "n00575sm";
+    $database_pass = "Mozzer_2310";
+    $database_name = "2020_comp10120_x6";
+    
+    $conn = mysqli_connect($database_host,$database_user,$database_pass,$database_name);
+
+    if (!$conn){
+        die("connection failed: " . mysqli_connect_error());
+    }
+
+    $sql = "SELECT `username` FROM `users` WHERE `id` = $current_user";
+    $result = $conn->query($sql);
+    $row = $result->fetch_assoc();
+    $current_username = $row["username"];
+?>
+
 <!DOCTYPE html>
 <html>
 	<head>
@@ -78,7 +99,7 @@
 			<li><a href="Resources.html">Resources</a></li>
 			<li><a href="Help.html">Help</a></li>
 			<li><a href="AboutUs.html">About Us</a></li>
-			<li style="float:right"><a class="active" href="Profile.html">Profile</a></li>
+			<li style="float:right"><a class="active" href="Profile.html"><?php echo $current_username ?></a></li>
 		</ul>
         <br><br><br>
         <div id="chartBackground">
@@ -96,17 +117,7 @@
         </div>  
         <br><br>
         <?php
-            $database_host = "dbhost.cs.man.ac.uk";
-            $database_user = "n00575sm";
-            $database_pass = "Mozzer_2310";
-            $database_name = "2020_comp10120_x6";
-            
-            $conn = mysqli_connect($database_host,$database_user,$database_pass,$database_name);
-
-            if (!$conn){
-                die("connection failed: " . mysqli_connect_error());
-            }
-            $current_user = 1; //NEED TO GET THIS
+            // $current_user = 1; //NEED TO GET THIS
             $sql = "SELECT `mood`, `date` FROM `mood` WHERE `user_id` = $current_user";
             $result = $conn->query($sql);
             $data = array();
