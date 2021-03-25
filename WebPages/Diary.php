@@ -1,8 +1,8 @@
         <?php
-            $database_host = "localhost";
-            $database_user = "root";
-            $database_pass = "yy747488";
-            $database_name = "moodslider";
+            $database_host = "dbhost.cs.man.ac.uk";
+            $database_user = "n00575sm";
+            $database_pass = "Mozzer_2310";
+            $database_name = "2020_comp10120_x6";
             $conn = mysqli_connect($database_host,$database_user,$database_pass,$database_name);
    
         if(!$conn){
@@ -11,17 +11,7 @@
             echo "Connected successfully";        
 
 
-            $user_id = $date = $msg = $mvalue = "";
-            $sql = "SELECT * FROM mood";
-            if(!empty($_POST)) {
-                    $user_id = $_POST["user_id"];
-                    $date = $_POST["date"];
-                    $mvalue = $_POST["mvalue"];
-                    $sql = sprintf("INSERT INTO mood VALUES('%s','%d','%d')",$user_id,$date,$mvalue);
-                }  else {
-                    $msg = "Upload failed:" .$link->error;
-                }
-                $conn ->close();
+
 
         ?>
 
@@ -155,7 +145,7 @@
             </div>
         </div> 
 
-        <span style="position:absolute; right:0px; bottom:0px;">
+        <span style="position:absolute; right:0px; bottom:20px;">
         <input type="button" value="Finish"></span>
 
         <script>
