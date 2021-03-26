@@ -1,4 +1,8 @@
         <?php
+
+            session_start();
+            $current_user = $_SESSION["user_id"];
+
             $database_host = "dbhost.cs.man.ac.uk";
             $database_user = "n00575sm";
             $database_pass = "Mozzer_2310";
@@ -8,11 +12,12 @@
         if(!$conn){
             die("connection failed: " . mysqli_connect_error());
         }
-            echo "Connected successfully";        
+            echo "Connected successfully";
 
-
-
-
+                $sql = "SELECT `username` FROM `users` WHERE `id` = $current_user";
+                $result = $conn->query($sql);
+                $row = $result->fetch_assoc();
+                $current_username = $row["username"]
         ?>
 
 <!DOCTYPE html>
@@ -127,28 +132,48 @@
       <li><a href="AboutUs.html">About Us</a></li>
       <li style="float:right"><a class="active" href="Profile.html">Profile</a></li>
 </ul>
+
+
         <label class="start">Today:</label>
         <input type="date" id="start" name="t"
-        value="2021-03-24"
-        min="2021-01-01" max="2399-12-31">
+        min="2021-01-01" max="2399-12-31"
+        value="<?php echo $date; ?>">
+
+
+        <?php
+            $sqld = "SELECT 'user_id', 'date','grateful_text' ,'diary_text', 'mood_value'FROM 'diaryentries' WHERE `user_id` = $current_user";
+            $diaryresult = $conn->query($sqld);
+    
+        ?>        
+
+
+
         <center>
             <td><label class ="title">What are you grateful for today?</label></td>
-            <p><td><input style="width:40em;" type="text" name="title" id="title" value=""></td></p>
+            <p><td><input style="width:70em ;height:3em;"type="text" name="title" id="title" value="<?php echo $grateful_text; ?>"></td></p>
                     
-            <td><textarea class ="content" name ="content" cols="130" rows="20"></textarea></td>
+            <td><textarea class ="content" name ="content" cols="130" rows="20 "value="<?php echo $diary_text; ?>"></textarea></td>
+
+
             <h3>Happy index <span id="msg">0</span>%</h3>     
         </center>
 
         <div id="lineDiv" class="lineDiv">
             <div id="minBlock" class="minBlock">
-                <div id="vals" class="vals">0</div>    
+                <div id="vals" class="vals" value='<?php echo $mood_value;?>'>0</div>    
             </div>
         </div> 
 
+//finish button
         <span style="position:absolute; right:0px; bottom:20px;">
-        <input type="button" value="Finish"></span>
+        <button onclick="fun()">Finish!</button></span>
 
         <script>
+           function fun() {
+            alert("Saved successfully!")
+           }
+
+
             window.onload = function() {
  
                 var lineDiv = document.getElementById('lineDiv'); 
