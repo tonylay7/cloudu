@@ -78,21 +78,30 @@ session_start();
   	<br>
     <h1>Welcome to CLOUDU!</h1>
     <h2>"To remind you of what brings you joy"</h2>
+    <p>We want to help you use gratitude journaling for emotional management.</p>
   </div>
 
   <div class="mySlides fade">
-    <!-- <img src="img2.jpg" style="width:100%"> -->
-    <div class="text">Caption Two</div>
+    <img src="wordcloud_sample.jpg" style = "width: 70%; height: 60%;">
+    <h2>Word Cloud</h2>
+    <p>Science shows that gratitude relates to happiness. We use a word cloud to show you what makes you grateful and happy.</p>
+    <br>
+    <p>Just type in something that makes you happy every day and we'll do the rest!</p>
   </div>
 
   <div class="mySlides fade">
-    <!-- <img src="img3.jpg" style="width:100%"> -->
-    <div class="text">Caption Three</div>
+    <!-- insert image of diary and mood tracker -->
+    <h2>Diary and Mood Tracker</h2>
+    <p>Our website also has a diary for your daily thoughts and happiness level.</p>
+	<p>This enables your very own mood tracker! You can use it to look for patterns in your mood over time.</p>
   </div>
 
   <div class="mySlides fade">
-    <!-- <img src="img3.jpg" style="width:100%"> -->
-    <div class="text">Caption Four</div>
+    <h2>About Us</h2>
+    <p>We are a group of students who made this web application with the aim of empowering people with tools for emotional management.</p>
+    <br>
+    <h2>Contact Us</h2>
+    <p>If you have any questions, suggestions, or complaints, please drop us an email at [insert smth here or google form?].</p>
   </div>
 
   <!-- Next and previous buttons -->
