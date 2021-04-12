@@ -68,13 +68,13 @@ session_start();
 </head>
 
 <body>
-<div class="slideshow-block" style ="width:70%;padding:0;margin:0;height:90%">
+<div class="slideshow-block" style ="width:70%;padding:10;margin:0;height:90%;">
 <!-- Slideshow container -->
 <div class="slideshow-container">
 
   <!-- Full-width images with number and caption text -->
   <div class="mySlides fade">
-  	<img src="cloudu.png" style = "width: 70%; height: 60%;">
+  	<img src="images/cloudu.png">
   	<br>
     <h1>Welcome to CLOUDU!</h1>
     <h2>"To remind you of what brings you joy"</h2>
@@ -82,7 +82,7 @@ session_start();
   </div>
 
   <div class="mySlides fade">
-    <img src="wordcloud_sample.jpg" style = "width: 70%; height: 60%;">
+    <img src="images/wordcloud_sample.jpg">
     <h2>Word Cloud</h2>
     <p>Science shows that gratitude relates to happiness. We use a word cloud to show you what makes you grateful and happy.</p>
     <br>

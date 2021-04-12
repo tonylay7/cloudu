@@ -55,6 +55,14 @@
   text-align: center;
 }
 
+img {
+  display: block;
+  max-width:531px;
+  max-height:369px;
+  width: auto;
+  height: auto;
+}
+
 
 /* The dots/bullets/indicators */
 .dot {
