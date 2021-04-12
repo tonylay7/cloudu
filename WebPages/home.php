@@ -74,21 +74,25 @@ session_start();
 
   <!-- Full-width images with number and caption text -->
   <div class="mySlides fade">
-    <div class="numbertext">1 / 3</div>
-    <!-- <img src="img1.jpg" style="width:100%"> -->
-    <div class="text">Caption Text</div>
+  	<img src="cloudu.png" style = "width: 70%; height: 60%;">
+  	<br>
+    <h1>Welcome to CLOUDU!</h1>
+    <h2>"To remind you of what brings you joy"</h2>
   </div>
 
   <div class="mySlides fade">
-    <div class="numbertext">2 / 3</div>
     <!-- <img src="img2.jpg" style="width:100%"> -->
     <div class="text">Caption Two</div>
   </div>
 
   <div class="mySlides fade">
-    <div class="numbertext">3 / 3</div>
     <!-- <img src="img3.jpg" style="width:100%"> -->
     <div class="text">Caption Three</div>
+  </div>
+
+  <div class="mySlides fade">
+    <!-- <img src="img3.jpg" style="width:100%"> -->
+    <div class="text">Caption Four</div>
   </div>
 
   <!-- Next and previous buttons -->
@@ -102,12 +106,13 @@ session_start();
 	  <span class="dot" onclick="currentSlide(1)"></span>
 	  <span class="dot" onclick="currentSlide(2)"></span>
 	  <span class="dot" onclick="currentSlide(3)"></span>
+	  <span class="dot" onclick="currentSlide(4)"></span>
 	</div>
 	</div>
-	<div style="position:absolute; top: 0; right:20px;width:30%; height:90%; padding:0">
+	<div style="position:absolute; top: 0; right:20px; width:30%; height:90%; padding:0">
 		<form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">
   		<table>
-  			<tr><td colspan="2"><?php echo $error;?></td>></tr>
+  			<tr><td colspan="2"><?php echo $error;?></td></tr>
 			<tr>
 				<td><label for="username">Username:</label></td>
 				<td><input type="text" name="username" id="username"
