@@ -63,7 +63,7 @@
   <body>
     <ul>
       <li><a href="WordCloud.php">Word Cloud</a></li>
-      <li><a href="Diary.html">Diary</a></li>
+      <li><a href="Diary.php">Diary</a></li>
       <li><a href="Calendar.html">Calendar</a></li>
       <li><a href="MoodTracker.php">Mood Tracker</a></li>
       <li><a href="Resources.html">Resources</a></li>
