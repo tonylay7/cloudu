@@ -68,47 +68,47 @@ session_start();
 </head>
 
 <body>
-<div class="slideshow-block" style ="width:70%;padding:10;margin:0;height:90%;">
+<div class="slideshow-block">
 <!-- Slideshow container -->
-<div class="slideshow-container">
+  <div class="slideshow-container">
+	  <div class="mySlides fade">
+	  	<img class="welcome" src="images/cloudu_white.svg">
+	  	<br>
+	    <h1 class="welcome text">Welcome to CLOUDU!</h1>
+	  </div>
 
-  <!-- Full-width images with number and caption text -->
-  <div class="mySlides fade">
-  	<img src="images/cloudu.png">
-  	<br>
-    <h1>Welcome to CLOUDU!</h1>
-    <h2>"To remind you of what brings you joy"</h2>
-    <p>We want to help you use gratitude journaling for emotional management.</p>
+	  <div class="mySlides fade">
+	    <img src="images/wordcloud_sample.jpg">
+	    <h1 class="slide text">Word Cloud</h1>
+	    <p class="slide text">Studies show that gratitude journaling is one of the best ways to improve your mental health and happiness levels!</p>
+	    <br>
+		<p class="slide text">We use a word cloud to show you what makes you grateful and happy. The more you like something, the bigger it will appear. Just type in something that makes you happy every day and we'll do the rest!</p>
+	  </div>
+
+	  <div class="mySlides fade">
+	    <!-- insert image of diary and mood tracker -->
+	    <img src="images/wordcloud_sample.jpg">
+	    <h1 class="slide text">Diary and Mood Tracker</h1>
+	    <p class="slide text">Our website also has a diary for your daily thoughts and happiness level.</p>
+		<p class="slide text">This enables your very own mood tracker! You can use it to look for patterns in your mood over time.</p>
+	  </div>
+
+	  <div class="mySlides fade">
+	  	<div class="lastslide">
+	      <h1 class="slide text">About Us</h1>
+	      <p class="slide text">We are a group of students who made this web application with the aim of empowering people with tools for emotional management and remind you every day of what brings you joy.</p>
+          <br>
+	      <br>
+	      <h1 class="slide text">Contact Us</h1>
+	      <p class="slide text">If you have any questions, suggestions, or complaints, please drop us an email at [insert smth here or google form?].</p>
+	    </div>
+	  </div>
+
+    <!-- Next and previous buttons -->
+    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+    <a class="next" onclick="plusSlides(1)">&#10095;</a>
   </div>
-
-  <div class="mySlides fade">
-    <img src="images/wordcloud_sample.jpg">
-    <h2>Word Cloud</h2>
-    <p>Science shows that gratitude relates to happiness. We use a word cloud to show you what makes you grateful and happy.</p>
-    <br>
-    <p>Just type in something that makes you happy every day and we'll do the rest!</p>
-  </div>
-
-  <div class="mySlides fade">
-    <!-- insert image of diary and mood tracker -->
-    <h2>Diary and Mood Tracker</h2>
-    <p>Our website also has a diary for your daily thoughts and happiness level.</p>
-	<p>This enables your very own mood tracker! You can use it to look for patterns in your mood over time.</p>
-  </div>
-
-  <div class="mySlides fade">
-    <h2>About Us</h2>
-    <p>We are a group of students who made this web application with the aim of empowering people with tools for emotional management.</p>
-    <br>
-    <h2>Contact Us</h2>
-    <p>If you have any questions, suggestions, or complaints, please drop us an email at [insert smth here or google form?].</p>
-  </div>
-
-  <!-- Next and previous buttons -->
-  <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-  <a class="next" onclick="plusSlides(1)">&#10095;</a>
-	</div>
-	<br>
+  <br>
 
 	<!-- The dots/circles -->
 	<div style="text-align:center">
@@ -117,28 +117,23 @@ session_start();
 	  <span class="dot" onclick="currentSlide(3)"></span>
 	  <span class="dot" onclick="currentSlide(4)"></span>
 	</div>
-	</div>
-	<div style="position:absolute; top: 0; right:20px; width:30%; height:90%; padding:0">
+</div>
+	<div class="form" style="">
 		<form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">
-  		<table>
-  			<tr><td colspan="2"><?php echo $error;?></td></tr>
-			<tr>
-				<td><label for="username">Username:</label></td>
-				<td><input type="text" name="username" id="username"
-					      value="<?php echo $username;?>" 
-					      placeholder ="Enter username"></td>
-			</tr>
-			<tr>
-				<td><label for="password">Password:</label></td>
-				<td><input type="password" name="password" id="password"
-					      value="<?php echo $password;?>"
-					      placeholder ="Enter password"></td>
-		    </tr>
-		    <br>
-		    <tr>
-		    	<td><input type="submit" value="Login" ></td>
-		    	<td><button type="submit" formaction="register.php">Register as New User</button></td>
-		    </tr>
+  			<h1 class="text" style="padding-bottom: 30px; font-size: 40px; padding-top: 20px;">Login</h2>
+  			<?php echo $error;?>
+			<label for="username"><p class = "text">Username</p></label>
+			<input type="text" name="username" id="username" value="<?php echo $username;?>">
+			<br>
+			<br>
+			<label for="password"><p class = "text">Password</p></label>
+			<input type="password" name="password" id="password" value="<?php echo $password;?>">
+			<br>
+			<br>
+			<br>
+		    <input type="submit" value="Login">
+		    <p class="text" style="text-align: center">or</p>
+		    <button type="submit" formaction="register.php">Register as New User</button></tr>
 		</table>
 		</form>
 	</div>
@@ -198,7 +193,7 @@ session_start();
 	$_SESSION["quote"] = $response[0]['q'];
 	$_SESSION["person"] = $response[0]['a'];
 
-	echo ("<br>" . $_SESSION["quote"] . "<br> -" . $_SESSION["person"]);
+	echo ("<br><p class=\"text\">" . $_SESSION["quote"] . "</p><br><p class=\"text\"> -" . $_SESSION["person"] . "</p>");
 
 	?>
 
