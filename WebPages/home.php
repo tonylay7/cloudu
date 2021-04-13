@@ -108,7 +108,6 @@ session_start();
     <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
     <a class="next" onclick="plusSlides(1)">&#10095;</a>
   </div>
-  <br>
 
 	<!-- The dots/circles -->
 	<div style="text-align:center">
@@ -138,6 +137,32 @@ session_start();
 		</form>
 	</div>
 </body>
+<footer>
+	<?php
+
+	$curl = curl_init();
+	$URL = "https://zenquotes.io/api/random";
+	curl_setopt($curl, CURLOPT_URL, $URL);
+	curl_setopt($curl, CURLOPT_CUSTOMREQUEST, "GET");
+	curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
+
+	$response = curl_exec($curl);
+	$err = curl_error($curl);
+
+	if ($err) {
+		echo ("<p class=\"text\">*Insert inspirational quote here*</p>");
+	}
+
+	$response = json_decode($response, true);
+
+	$_SESSION["quote"] = $response[0]['q'];
+	$_SESSION["person"] = $response[0]['a'];
+
+	echo ("<p class='quote text'>" . $_SESSION["quote"] . "</p><p class='person text'> ~" . $_SESSION["person"] . "</p>");
+
+	?>
+
+</footer>
 
 <script type="text/javascript">
 	var slideIndex = 1;
@@ -170,31 +195,3 @@ session_start();
 	}
 
 </script>
-<footer>
-	<?php
-
-	$curl = curl_init();
-	$URL = "https://zenquotes.io/api/random";
-	curl_setopt($curl, CURLOPT_URL, $URL);
-	curl_setopt($curl, CURLOPT_CUSTOMREQUEST, "GET");
-	curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
-
-	$response = curl_exec($curl);
-	$err = curl_error($curl);
-
-	if ($err) {
-		echo "cURL Error #:" . $err;
-	} else {
-	//	echo $response;
-	}
-
-	$response = json_decode($response, true);
-
-	$_SESSION["quote"] = $response[0]['q'];
-	$_SESSION["person"] = $response[0]['a'];
-
-	echo ("<br><p class=\"text\">" . $_SESSION["quote"] . "</p><br><p class=\"text\"> -" . $_SESSION["person"] . "</p>");
-
-	?>
-
-</footer>
