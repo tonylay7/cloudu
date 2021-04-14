@@ -14,7 +14,7 @@
     }
 
     $date = $_POST['date'];
-    $grateful = $_POST['title'];
+    $grateful = $_POST['phrases'];
     $content = $_POST['content'];
     $mood = $_POST['mood'];
 
@@ -24,41 +24,48 @@
     }
     else
     {
-        $grateful = str_replace("'","''",$grateful);
-        $content = str_replace("'","''",$content);
         $sql = "SELECT * FROM `diaryentries` WHERE `user_id` = '$current_user' AND `date` = '$date'";
         $result = $conn->query($sql);
         $row = $result->fetch_assoc();
         if($row)
         {   
-            $sql = "UPDATE `mood` SET `mood`='$mood' WHERE `user_id` = '$current_user' AND `date` = '$date'";
-            $rs = mysqli_query($conn, $sql);
-
-            if($rs)
+            $stmt = $conn->prepare("UPDATE `mood` SET `mood`= ? WHERE `user_id` = ? AND `date` = ?");
+            $stmt->bind_param('sss', $mood, $current_user, $date);
+            if($stmt->execute())
             {
                 echo "Mood Table Updated";
             }
 
-            $sql = "UPDATE `diaryentries` SET `grateful_text`='$grateful', `diary_text`='$content' WHERE `user_id` = '$current_user' AND `date` = '$date'";
+            $stmt = $conn->prepare("UPDATE `diaryentries` SET `grateful_text`= ?, `diary_text`= ? WHERE `user_id` = ? AND `date` = ?");
+            $stmt->bind_param('ssss', $grateful, $content, $current_user, $date);
 
-            if (!$conn -> query($sql)) {
-                echo("Error description: " . $conn -> error);
+            if($stmt->execute())
+            {
+                echo "diary table updated";
+            }
+            else{
+                echo("Error description: " . $stmt -> error);
               }
         }
         else
         {
-            $sql = "INSERT INTO `mood` (`mood_id`, `user_id`, `date`, `mood`) VALUES (NULL, '$current_user', '$date', '$mood');";
-            $rs = mysqli_query($conn, $sql);
+            $stmt = $conn->prepare("INSERT INTO `mood` (`mood_id`, `user_id`, `date`, `mood`) VALUES (NULL, ?, ?, ?)");
+            $stmt->bind_param('sss', $current_user, $date, $mood);
 
-            if($rs)
+            if($stmt->execute())
             {
-                echo "Submitted to Mood Table";
+                echo "Submitted to mood table";
             }
 
-            $sql = "INSERT INTO `diaryentries` (`id`, `user_id`, `date`, `grateful_text`, `diary_text`, `mood_id`) VALUES (NULL, '$current_user', '$date', '$grateful', '$content', (SELECT `mood_id` FROM `mood` WHERE `user_id` = '$current_user' AND `date` = '$date'))";
+            $stmt = $conn->prepare("INSERT INTO `diaryentries` (`id`, `user_id`, `date`, `grateful_text`, `diary_text`, `mood_id`) VALUES (NULL, ?, ?, ?, ?, (SELECT `mood_id` FROM `mood` WHERE `user_id` = ? AND `date` = ?))");
+            $stmt->bind_param('ssssss', $current_user, $date, $grateful, $content, $current_user, $date);
 
-            if (!$conn -> query($sql)) {
-                echo("Error description: " . $conn -> error);
+            if($stmt->execute())
+            {
+                echo "diary table updated";
+            }
+            else{
+                echo("Error description: " . $stmt -> error);
               }
         }
         echo "Submitted";

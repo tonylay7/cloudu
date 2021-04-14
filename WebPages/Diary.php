@@ -48,8 +48,8 @@ if(!$conn){
 <!DOCTYPE html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-        <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
-        <title>slider</title>
+        <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"/>
+        <title>Diary</title>
         <link rel="stylesheet" type="text/css" href="styles.css">
         <style type="text/css">
             body{
@@ -111,6 +111,10 @@ if(!$conn){
                 height: 100px;
                 border: 1px solid lightgrey;
             }
+
+            .phrases{
+                display: none;
+            }
         </style>
     </head>
  
@@ -130,6 +134,7 @@ if(!$conn){
         
         <br><br><br><br>
         <form name="diaryEntry" method="post" action="submitDiary.php">
+        <button type="submit" disabled style="display: none" aria-hidden="true"></button>
             <td>
                 <h3><label class="start">Date:</label>
                 <input type="date" id="start" name="date" min="2021-01-01" max="2399-12-31" value="">
@@ -140,6 +145,31 @@ if(!$conn){
             <td><h3>What are You Grateful for?<h3></td>
             <p><td><input style="width:70em ;height:3em;"type="text" name="title" id="title"?></td></p>
             <br>
+
+            <button type="button" id="submitPhrase">Submit</button>
+            <br><br>
+            <button type="button" class="phrases" id="btn1" onclick="invis(this)"></button>
+            <button type="button" class="phrases" id="btn2" onclick="invis(this)"></button>
+            <button type="button" class="phrases" id="btn3" onclick="invis(this)"></button>
+            <button type="button" class="phrases" id="btn4" onclick="invis(this)"></button>
+            <button type="button" class="phrases" id="btn5" onclick="invis(this)"></button>
+            <button type="button" class="phrases" id="btn6" onclick="invis(this)"></button>
+            <button type="button" class="phrases" id="btn7" onclick="invis(this)"></button>
+            <button type="button" class="phrases" id="btn8" onclick="invis(this)"></button>
+            <button type="button" class="phrases" id="btn9" onclick="invis(this)"></button>
+            <button type="button" class="phrases" id="btn10" onclick="invis(this)"></button>
+            <button type="button" class="phrases" id="btn11" onclick="invis(this)"></button>
+            <button type="button" class="phrases" id="btn12" onclick="invis(this)"></button>
+            <button type="button" class="phrases" id="btn13" onclick="invis(this)"></button>
+            <button type="button" class="phrases" id="btn14" onclick="invis(this)"></button>
+            <button type="button" class="phrases" id="btn15" onclick="invis(this)"></button>
+            <button type="button" class="phrases" id="btn16" onclick="invis(this)"></button>
+            <button type="button" class="phrases" id="btn17" onclick="invis(this)"></button>
+            <button type="button" class="phrases" id="btn18" onclick="invis(this)"></button>
+            <button type="button" class="phrases" id="btn19" onclick="invis(this)"></button>
+            <button type="button" class="phrases" id="btn20" onclick="invis(this)"></button>
+            <input type="hidden" id="phrases" name="phrases" value="">
+
             <h3>Diary Entry:<h3>
             <td><textarea class ="content" name ="content" cols="130" rows="20" id="diaryText" value=""></textarea></td>
 
@@ -163,11 +193,26 @@ if(!$conn){
             <button onclick="save()">Save</button>
         </form>
 
-        <script>
+        <script>  
+
             function save() {
                 document.getElementById('mood').value = document.getElementById('vals').innerText;
-                alert("Saved successfully!");
+                for(i=1;i<21;i++){
+                    if(document.getElementById('btn' + i.toString()).style.display === "inline-block"){
+                        if(document.getElementById('phrases').value === ""){
+                            document.getElementById('phrases').value = document.getElementById('btn' + i.toString()).innerText;
+                        }
+                        else{
+                            document.getElementById('phrases').value += ", " + document.getElementById('btn' + i.toString()).innerText;
+                        }
+                    }
+                }
             };
+
+            function invis(obj) {
+                document.getElementById(obj.id).style.display = "none";
+                document.getElementById(obj.id).innerText = "";
+            }
 
             document.getElementById('load').addEventListener('click', function() {
                     var loadDate = document.getElementById('start').value;
@@ -180,11 +225,15 @@ if(!$conn){
 
                         for(i=0;i<dates.length;i++){
                             if(loadDate == dates[i]){
-                                console.log("yay");
-                                document.getElementById('title').value = gratefulData[i];
                                 document.getElementById('diaryText').value = diaryData[i];
                                 document.getElementById('msg').innerText = moodData[i];
                                 document.getElementById('vals').innerText = moodData[i];
+                                var gratefuls = gratefulData[i].split(", ");
+                                console.log(gratefuls.length);
+                                for(j=0;j<(gratefuls.length);j++){
+                                    document.getElementById('btn' + (j+1).toString()).style.display = "inline-block";
+                                    document.getElementById('btn' + (j+1).toString()).innerText = gratefuls[j];
+                                }
                             }
                         }
                     }
@@ -196,9 +245,27 @@ if(!$conn){
                     }
             });
 
+            document.getElementById('submitPhrase').addEventListener('click', function() {
+                var input = document.getElementById('title').value;
+                input = input.trim().toLowerCase();
+                for(i=1;i<21;i++){
+                    if(document.getElementById('btn' + i.toString()).innerText === input){
+                        alert("You have already inputted: " + input);
+                        document.getElementById('title').value = "";
+                        break;
+                    };
+                    if(document.getElementById('btn' + i.toString()).style.display === "" ||
+                    document.getElementById('btn' + i.toString()).style.display === "none"){
+                        document.getElementById('btn' + i.toString()).style.display = "inline-block";
+                        document.getElementById('btn' + i.toString()).innerText = input;
+                        document.getElementById('title').value = "";
+                        break;
+                    }
+                }
+            });
+
 
             window.onload = function() {
- 
                 var lineDiv = document.getElementById('lineDiv'); 
                 var minDiv = document.getElementById('minBlock'); 
                 var msg = document.getElementById("msg");
