@@ -2,21 +2,55 @@
 <html>
   <head>
     <link rel="stylesheet" type="text/css" href="styles.css">
+    <link rel="stylesheet" type="text/css" href="stylecalendar.css">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
     <meta charset="UTF-8">
     <title>Calendar</title>
   </head>
   <body>
     <div class="navbar"> 
       <ul>
-        <li><a href="WordCloud.php">Word Cloud</a></li>
-        <li><a href="Diary.php">Diary</a></li>
-        <li><a href="Calendar.html">Calendar</a></li>
-        <li><a href="MoodTracker.php">Mood Tracker</a></li>
-        <li><a href="Resources.html">Resources</a></li>
-        <li><a href="Help.html">Help</a></li>
-        <li><a href="AboutUs.html">About Us</a></li>
-        <li style="float:right"><a class="active" href="Profile.html">Profile</a></li>
+        <li><a href="WordCloud.php"><p>Word Cloud</p></a></li>
+        <li><a href="Diary.php"><p>Diary</p></a></li>
+        <li><a href="Calendar.html"><p>Calendar</p></a></li>
+        <li><a href="MoodTracker.php"><p>Mood Tracker</p></a></li>
+        <li><a href="Resources.html"><p>Resources</p></a></li>
+        <li><a href="Help.html"><p>Help</p></a></li>
+        <li><a href="AboutUs.html"><p>About Us</p></a></li>
+        <li style="float:right"><a class="active" href="Profile.html"><p>Profile</p></a></li>
       </ul>
     </div>
+
+    <div class="container">
+      <div class="calendar">
+        <div class="month">
+          <i class="fas fa-angle-left prev"></i>
+          <div class="date">
+            <h1></h1>
+            <p></p>
+          </div>
+          <i class="fas fa-angle-right next"></i>
+        </div>
+        <div class="weekdays">
+          <div>Sun</div>
+          <div>Mon</div>
+          <div>Tue</div>
+          <div>Wed</div>
+          <div>Thu</div>
+          <div>Fri</div>
+          <div>Sat</div>
+        </div>
+        <div class="days"></div>
+      </div>
+    </div>
+
+    <script src="script-calendar.js"></script>
   </body>
 </html>
