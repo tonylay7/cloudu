@@ -41,7 +41,7 @@
             <li style="float:right"><a class="active" href="Profile.html">Profile</a></li>
           </ul>
         </div>
-        <br><br><br>
+        <br><br><br><br>
         <div id="boundingBox">
             <div id="chartBackground">
                 <br>

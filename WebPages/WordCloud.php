@@ -73,12 +73,12 @@
         <li style="float:right"><a class="active" href="Profile.html">Profile</a></li>
       </ul>
     </div>
+    <br><br> <!--TEMP FIX FOR STYLING ISSUE-->
     <div class="container">
       <div class="center">
         <a href="WordCloudCustomWords.php" class="myButton">Add/Remove Words</a>  
       </div>
     </div>
-    
   <div id="container"></div>
     <?php
       $database_host = "dbhost.cs.man.ac.uk";

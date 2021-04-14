@@ -45,21 +45,12 @@ if(!$conn){
             body{
               font-family: Arial
               font-size: 30px;
-              color: orange;
-            }
-            .title{
-                margin: 0 auto;
-                width: 90%;
-                height: 30px;
-                padding-left: 5px;
-                font-size:14pt;font-family:Microsoft YaHei;
-                color:#0099FF;
-
+              color: white;
             }
             .lineDiv {
                 position: relative;
                 height: 20px;      
-                background:linear-gradient(80deg,blue,orange);
+                background:linear-gradient(80deg,rgb(117, 187, 220),coral);
                 width: 380px;
                 margin: 60px auto;
             }
@@ -83,14 +74,14 @@ if(!$conn){
                 height: 35px;
                 line-height: 35px;
                 text-align: center;
-                background: white;
+                background: rgb(117, 187, 220);
             }
              
             .lineDiv .minBlock .vals:after {
                 content: "";
                 width: 0px;
                 height: 0px;
-                border-top: 6px solid blue;
+                border-top: 6px solid rgb(117, 187, 220);
                 border-left: 6px solid transparent;
                 border-right: 6px solid transparent;
                 border-bottom: 6px solid transparent;
@@ -100,6 +91,15 @@ if(!$conn){
 
             form{
                 text-align: center;
+            }
+
+            #sliderBackground{
+                margin: 0 auto;
+                padding-top: 2px;
+                background-color: white;
+                width: 420px;
+                height: 100px;
+                border: 1px solid lightgrey;
             }
         </style>
     </head>
@@ -118,28 +118,35 @@ if(!$conn){
           </ul>
         </div>
         
-        <br>
+        <br><br><br><br>
         <form name="diaryEntry" method="post" action="submitDiary.php">
+            <td>
+                <h3><label class="start">Date:</label>
+                <input type="date" id="start" name="date" min="2021-01-01" max="2399-12-31" value="">
+                <button type="button" id="load" title="Load data for selected day">Load</button>
+                </h3>
+            </td>
+            <br>
+            <td><h3>What are You Grateful for?<h3></td>
+            <p><td><input style="width:70em ;height:3em;"type="text" name="title" id="title"?></td></p>
+            <br>
+            <h3>Diary Entry:<h3>
+            <td><textarea class ="content" name ="content" cols="130" rows="20" id="diaryText" value=""></textarea></td>
 
-                <td>
-                    <label class="start">Date:</label>
-                    <input type="date" id="start" name="date" min="2021-01-01" max="2399-12-31" value="">
-                    <button type="button" id="load" title="Load data for selected day">Load</button>
-                </td>
-                <br><br>
-                <td><label class ="title">What are you grateful for today?</label></td>
-                <p><td><input style="width:70em ;height:3em;"type="text" name="title" id="title"?></td></p>
-                <br>
-                <td><textarea class ="content" name ="content" cols="130" rows="20" id="diaryText" value=""></textarea></td>
+            <br><br>
+            <h3>What Would You Rate your Average Mood for the Day?<h3>   
 
-
-                <h3>Happy index <span id="msg">0</span>%</h3>     
-
-            <div id="lineDiv" class="lineDiv">
-                <div id="minBlock" class="minBlock">
-                    <div id="vals" class="vals">0</div>    
+            <br>
+            <div id="sliderBackground">
+                <div id="lineDiv" class="lineDiv">
+                    <div id="minBlock" class="minBlock">
+                        <div id="vals" class="vals">0</div>    
+                    </div>
                 </div>
             </div>
+            <br>
+            <h3>Happiness Rating: <span id="msg">0</span></h3>
+            <br> 
 
             <input type="hidden" id="mood" name="mood" value="">
 
@@ -175,6 +182,12 @@ if(!$conn){
                             document.getElementById('vals').innerText = moodData[i];
                         }
                     }
+                }
+                else{
+                    document.getElementById('title').value = "";
+                    document.getElementById('diaryText').value = "";
+                    document.getElementById('msg').innerText = "0";
+                    document.getElementById('vals').innerText = "0";
                 }
             });
 
