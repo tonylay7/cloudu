@@ -23,6 +23,8 @@ if(!$conn){
     $diaryresult = $conn->query($sqld);
 
     if($diaryresult->fetch_assoc()){
+        $sqld = "SELECT * FROM `diaryentries` WHERE `user_id` = $current_user";
+        $diaryresult = $conn->query($sqld);
         while($row = $diaryresult->fetch_assoc()){
             $date[] = $row['date'];
             $gratefulData[] = $row['grateful_text'];
