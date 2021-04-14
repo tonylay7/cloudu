@@ -40,6 +40,7 @@ if(!$conn){
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
         <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
         <title>slider</title>
+        <link rel="stylesheet" type="text/css" href="styles.css">
         <style type="text/css">
             body{
               font-family: Arial
@@ -100,40 +101,6 @@ if(!$conn){
             form{
                 text-align: center;
             }
-
-            ul {
-            list-style-type: none;
-            margin: 0;
-            padding-left: 30px;
-            overflow: hidden;
-            background-color: rgb(137, 207, 240);
-            }
-
-            li {
-            float: left;
-            }
-
-            li a {
-            display: block;
-            color: white;
-            text-align: center;
-            padding: 14px 25px;
-            text-decoration: none;
-            }
-
-            li a:hover:not(.active) {
-            background-color: rgb(255, 255, 255);
-            color: rgb(0, 0, 0);
-            }
-
-            .active {
-            background-color: #000000;
-            }
-
-            html,body {
-            margin: 0;
-            padding: 0;
-            }
         </style>
     </head>
  
@@ -162,7 +129,7 @@ if(!$conn){
                 <br><br>
                 <td><label class ="title">What are you grateful for today?</label></td>
                 <p><td><input style="width:70em ;height:3em;"type="text" name="title" id="title"?></td></p>
-                        
+                <br>
                 <td><textarea class ="content" name ="content" cols="130" rows="20" id="diaryText" value=""></textarea></td>
 
 

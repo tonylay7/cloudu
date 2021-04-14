@@ -81,7 +81,8 @@ h1{
 	text-shadow: -1px 1px #549abb;
 }
 
-div.aboutus{
+div.aboutus,
+div.resources{
   margin: 0;
   padding: 30px;
   position: absolute;
