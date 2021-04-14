@@ -97,10 +97,14 @@ if (isset($_POST["confirm"])) {
 	</head>
 
 	<body>
-	  <ul>
-        <li><h1 class ="register">Welcome to</h1></li>
-        <li><img class="register" src="images/cloudu_white.svg"></li>
-      </ul>
+	  <div class="register-container">
+	  	<div class="register-text">
+          <h1 class ="register">Welcome to</h1>
+        </div>
+        <div class="register-image">
+          <img class="register" src="images/cloudu_white.svg">
+        </div>
+      </div>
 
  	  <div class="container">
  		<p class="text" style="padding-left: 20px; font-size: 18px;">Please fill in this form to sign up for CloudU.</p>

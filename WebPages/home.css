@@ -244,27 +244,23 @@ label{
 }
 
 img.register{
-  height: 135px; 
-  padding: 10px;
+  height: 150px;
+  padding-top: 20px;
 }
 
 h1.register{
-  font-size: 50px; 
+  font-size: 48px; 
   color: white;
-  padding-top: 50px;
+  padding-top: 40px;
+  padding-right: 15px;
 }
 
-ul {
-  padding-left: 90px;
-  list-style-type: none;
-  overflow: hidden;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  max-width: 600px;
-  width: auto;
+.register-container{
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-li {
-  float: left;
+.register-image{
+  flex-basis: 0%;
 }
