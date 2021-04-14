@@ -22,17 +22,25 @@ if(!$conn){
     $sqld = "SELECT * FROM `diaryentries` WHERE `user_id` = $current_user";
     $diaryresult = $conn->query($sqld);
 
-    while($row = $diaryresult->fetch_assoc()){
-        $date[] = $row['date'];
-        $gratefulData[] = $row['grateful_text'];
-        $diaryData[] = $row['diary_text'];
-    };
-
-    $sql = "SELECT `mood` FROM `mood` WHERE `user_id` = $current_user";
-    $moodresult = $conn->query($sql);
-    while($row = $moodresult->fetch_assoc()){
-        $moodData[] = $row['mood'];
-    };
+    if($diaryresult->fetch_assoc()){
+        while($row = $diaryresult->fetch_assoc()){
+            $date[] = $row['date'];
+            $gratefulData[] = $row['grateful_text'];
+            $diaryData[] = $row['diary_text'];
+        };
+    
+        $sql = "SELECT `mood` FROM `mood` WHERE `user_id` = $current_user";
+        $moodresult = $conn->query($sql);
+        while($row = $moodresult->fetch_assoc()){
+            $moodData[] = $row['mood'];
+        };
+    }
+    else{
+        $date[] = "";
+        $gratefulData[] = "";
+        $diaryData[] = "";
+        $moodData[] = "";
+    }
 ?>
 
 <!DOCTYPE html>
@@ -160,34 +168,38 @@ if(!$conn){
             };
 
             document.getElementById('load').addEventListener('click', function() {
-                var loadDate = document.getElementById('start').value;
+                try{
+                    var loadDate = document.getElementById('start').value;
 
-                if(loadDate){
-                    var dates = <?php echo json_encode($date); ?>;
-                    var gratefulData = <?php echo json_encode($gratefulData); ?>;
-                    var diaryData = <?php echo json_encode($diaryData); ?>;
-                    var moodData = <?php echo json_encode($moodData); ?>;
-                    
-                    console.log(dates);
-                    console.log(gratefulData);
-                    console.log(diaryData);
-                    console.log(moodData);
+                    if(loadDate){
+                        var dates = <?php echo json_encode($date); ?>;
+                        var gratefulData = <?php echo json_encode($gratefulData); ?>;
+                        var diaryData = <?php echo json_encode($diaryData); ?>;
+                        var moodData = <?php echo json_encode($moodData); ?>;
+                        
+                        console.log(dates);
+                        console.log(gratefulData);
+                        console.log(diaryData);
+                        console.log(moodData);
 
-                    for(i=0;i<dates.length;i++){
-                        if(loadDate == dates[i]){
-                            console.log("yay");
-                            document.getElementById('title').value = gratefulData[i];
-                            document.getElementById('diaryText').value = diaryData[i];
-                            document.getElementById('msg').innerText = moodData[i];
-                            document.getElementById('vals').innerText = moodData[i];
+                        for(i=0;i<dates.length;i++){
+                            if(loadDate == dates[i]){
+                                console.log("yay");
+                                document.getElementById('title').value = gratefulData[i];
+                                document.getElementById('diaryText').value = diaryData[i];
+                                document.getElementById('msg').innerText = moodData[i];
+                                document.getElementById('vals').innerText = moodData[i];
+                            }
                         }
                     }
-                }
-                else{
-                    document.getElementById('title').value = "";
-                    document.getElementById('diaryText').value = "";
-                    document.getElementById('msg').innerText = "0";
-                    document.getElementById('vals').innerText = "0";
+                    else{
+                        document.getElementById('title').value = "";
+                        document.getElementById('diaryText').value = "";
+                        document.getElementById('msg').innerText = "0";
+                        document.getElementById('vals').innerText = "0";
+                    }
+                } catch(err){
+                    console.log("No current data for user");
                 }
             });
 

@@ -38,7 +38,7 @@
             <li><a href="Resources.html">Resources</a></li>
             <li><a href="Help.html">Help</a></li>
             <li><a href="AboutUs.html">About Us</a></li>
-            <li style="float:right"><a class="active" href="Profile.html">Profile</a></li>
+            <li style="float:right"><a class="active" href="Profile.php">Profile</a></li>
           </ul>
         </div>
         <br><br><br><br>
@@ -59,7 +59,6 @@
         </div>
         <br><br>
         <?php
-            // $current_user = 1; //NEED TO GET THIS
             $sql = "SELECT `mood`, `date` FROM `mood` WHERE `user_id` = $current_user";
             $result = $conn->query($sql);
             $data = array();
