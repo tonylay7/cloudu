@@ -119,13 +119,13 @@ session_start();
 </div>
 	<div class="form" style="">
 		<form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">
-  			<h1 class="text" style="padding-bottom: 30px; font-size: 40px; padding-top: 20px;">Login</h2>
+  			<h1 class="text" style="padding-bottom: 30px; font-size: 40px; padding-top: 20px; color: #2b7ba9;">Login</h2>
   			<?php echo $error;?>
-			<label for="username"><p class = "text">Username</p></label>
+			<label for="username"><p style="color: #2b7ba9;">Username</p></label>
 			<input type="text" name="username" id="username" value="<?php echo $username;?>">
 			<br>
 			<br>
-			<label for="password"><p class = "text">Password</p></label>
+			<label for="password"><p style="color: #2b7ba9;">Password</p></label>
 			<input type="password" name="password" id="password" value="<?php echo $password;?>">
 			<br>
 			<br>
@@ -158,7 +158,7 @@ session_start();
 	$_SESSION["quote"] = $response[0]['q'];
 	$_SESSION["person"] = $response[0]['a'];
 
-	echo ("<p class='quote text'>" . $_SESSION["quote"] . "</p><p class='person text'> ~" . $_SESSION["person"] . "</p>");
+	echo ("<p class='quote text'>" . $_SESSION["quote"] . "</p><p class='person text'><i>~" . $_SESSION["person"] . "</i></p>");
 
 	?>
 

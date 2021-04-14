@@ -51,8 +51,6 @@ function checkdb($username, $email, $password){
 		$stmt = $conn->prepare("INSERT INTO users (username, email, password)VALUES (?, ?, ?)");
 		$stmt->bind_param('sss', $username, $email, $user_password);
 
-  		// $sql = "INSERT INTO users (username, email, password)VALUES ('$username', '$email', '$password')";
-
 		if ($stmt->execute()) {
 	  		$_SESSION["user_id"] = $row['id'];
 		    $_SESSION["username"] = $row['username'];
@@ -99,43 +97,31 @@ if (isset($_POST["confirm"])) {
 	</head>
 
 	<body>
-	<header>
- 		<h1 style="line-height: 80px;">Welcome to CLOUDU!</h1>
- 	</header>
- 	<p>Please fill in this form to sign up for CloudU.</p>
-	<br>
-	<?php echo ($error);?>
-	<form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">
-	<table>
-		<tr>
-			<td><label for="username">Username:</label></td>
-			<td><input type="text" name="username" id="username" value="<?php echo $username;?>" required maxlength="12"></td>
-		</tr>
-		<tr>
-			<td><label for="password">Password:</label></td>
-			<td><input type="password" name="password" id="password" value="<?php echo $password;?>" required maxlength="16"></td>
-		</tr>
-		<tr>
-			<td><label for="confirm">Confirm password:</label></td>
-			<td><input type="password" name="confirm" id="confirm" value="<?php echo $confirm;?>" required maxlength="18"></td>
-		</tr>
-		<tr>
-			<td><label for="email">E-mail:</label></td>
-			<td><input type="email" name="email" id="email"
-				     value="<?php echo $email;?>" required
-				     maxlength="40"></td>
-	    </tr>
-	    <tr>
-	    	<td colspan="2"><input type="checkbox" id="terms" name="terms" value="terms" required>
-	    		By creating an account you agree to our <a href="#">Terms & Conditions</a>.</td>
-	    </tr>
-	    <tr>
-	    	<td>&nbsp;</td>
-	    	<td><input type="submit" value="Create Account"></td>
-	    </tr>
-	</table>
-	</form>
-	<br>
-	<p>Already have an account? <a href="home.php">Sign in</a>.</p>
-</body>
+	  <ul>
+        <li><h1 class ="register">Welcome to</h1></li>
+        <li><img class="register" src="images/cloudu_white.svg"></li>
+      </ul>
+
+ 	  <div class="container">
+ 		<p class="text" style="padding-left: 20px; font-size: 18px;">Please fill in this form to sign up for CloudU.</p>
+		<?php echo ($error);?>
+		<form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">
+			<label for="username">Username:</label>
+			<input type="text" name="username" id="username" value="<?php echo $username;?>" required maxlength="12">
+			<label for="password">Password:</label>
+			<input type="password" name="password" id="password" value="<?php echo $password;?>" required maxlength="16">
+			<label for="confirm">Confirm password:</label>
+			<input type="password" name="confirm" id="confirm" value="<?php echo $confirm;?>" required maxlength="18">
+			<label for="email">E-mail:</label>
+			<input type="email" name="email" id="email" value="<?php echo $email;?>" required maxlength="40">
+			<br>
+			<br>
+			<input type="checkbox" id="terms" name="terms" value="terms" required><label for="checkbox" style="font-size: 15px;">By creating an account you agree to our <a href="#">Terms & Conditions</a>.</label>
+		    <br>
+		    <input type="submit" value="Create Account">
+		</form>
+		<p class="text" style="text-align: center">or</p>
+		<p class="text" style="padding: 22px; padding-top: 7px; font-size: 18px;">Already have an account? <a href="home.php">Sign in</a>.</p>
+	  </div>
+	</body>
 </html>
