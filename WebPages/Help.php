@@ -53,7 +53,7 @@
             <li><a href="Diary.php">Diary</a></li>
             <li><a href="Calendar.html">Calendar</a></li>
             <li><a href="MoodTracker.php">Mood Tracker</a></li>
-            <li><a href="Resources.html">Resources</a></li>
+            <li><a href="Resources.php">Resources</a></li>
             <li><a href="Help.php">Help</a></li>
             <li><a href="AboutUs.html">About Us</a></li>
             <li style="float:right"><a class="active" href="Profile.php"><?php echo $current_username ?></a></li>
