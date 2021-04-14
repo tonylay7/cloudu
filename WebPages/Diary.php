@@ -203,7 +203,7 @@ if(!$conn){
                             document.getElementById('phrases').value = document.getElementById('btn' + i.toString()).innerText;
                         }
                         else{
-                            document.getElementById('phrases').value += ", " + document.getElementById('btn' + i.toString()).innerText;
+                            document.getElementById('phrases').value += "," + document.getElementById('btn' + i.toString()).innerText;
                         }
                     }
                 }
@@ -228,7 +228,7 @@ if(!$conn){
                                 document.getElementById('diaryText').value = diaryData[i];
                                 document.getElementById('msg').innerText = moodData[i];
                                 document.getElementById('vals').innerText = moodData[i];
-                                var gratefuls = gratefulData[i].split(", ");
+                                var gratefuls = gratefulData[i].split(",");
                                 console.log(gratefuls.length);
                                 for(j=0;j<(gratefuls.length);j++){
                                     document.getElementById('btn' + (j+1).toString()).style.display = "inline-block";
