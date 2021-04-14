@@ -1,5 +1,4 @@
 <?php
-
     session_start();
     $current_user = $_SESSION["user_id"];
 
@@ -216,8 +215,11 @@ if(!$conn){
 
             document.getElementById('load').addEventListener('click', function() {
                     var loadDate = document.getElementById('start').value;
+                    load(loadDate);
+            });
 
-                    if(loadDate){
+            function load(loadDate){
+                if(loadDate){
                         var dates = <?php echo json_encode($date); ?>;
                         var gratefulData = <?php echo json_encode($gratefulData); ?>;
                         var diaryData = <?php echo json_encode($diaryData); ?>;
@@ -243,7 +245,7 @@ if(!$conn){
                         document.getElementById('msg').innerText = "0";
                         document.getElementById('vals').innerText = "0";
                     }
-            });
+            }
 
             document.getElementById('submitPhrase').addEventListener('click', function() {
                 var input = document.getElementById('title').value;
