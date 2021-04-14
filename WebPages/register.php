@@ -54,7 +54,7 @@ function checkdb($username, $email, $password){
 		if ($stmt->execute()) {
 	  		$_SESSION["user_id"] = $row['id'];
 		    $_SESSION["username"] = $row['username'];
-			header('Location: Help.html');
+			header('Location: Help.php');
 		} else {
 		  echo "Error: " . $conn->error;
 		}
