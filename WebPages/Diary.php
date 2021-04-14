@@ -168,7 +168,6 @@ if(!$conn){
             };
 
             document.getElementById('load').addEventListener('click', function() {
-                try{
                     var loadDate = document.getElementById('start').value;
 
                     if(loadDate){
@@ -176,11 +175,6 @@ if(!$conn){
                         var gratefulData = <?php echo json_encode($gratefulData); ?>;
                         var diaryData = <?php echo json_encode($diaryData); ?>;
                         var moodData = <?php echo json_encode($moodData); ?>;
-                        
-                        console.log(dates);
-                        console.log(gratefulData);
-                        console.log(diaryData);
-                        console.log(moodData);
 
                         for(i=0;i<dates.length;i++){
                             if(loadDate == dates[i]){
@@ -198,9 +192,6 @@ if(!$conn){
                         document.getElementById('msg').innerText = "0";
                         document.getElementById('vals').innerText = "0";
                     }
-                } catch(err){
-                    console.log("No current data for user");
-                }
             });
 
 

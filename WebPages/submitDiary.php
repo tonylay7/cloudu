@@ -24,6 +24,8 @@
     }
     else
     {
+        $grateful = str_replace("'","''",$grateful);
+        $content = str_replace("'","''",$content);
         $sql = "SELECT * FROM `diaryentries` WHERE `user_id` = '$current_user' AND `date` = '$date'";
         $result = $conn->query($sql);
         $row = $result->fetch_assoc();
@@ -38,6 +40,10 @@
             }
 
             $sql = "UPDATE `diaryentries` SET `grateful_text`='$grateful', `diary_text`='$content' WHERE `user_id` = '$current_user' AND `date` = '$date'";
+
+            if (!$conn -> query($sql)) {
+                echo("Error description: " . $conn -> error);
+              }
         }
         else
         {
@@ -50,14 +56,12 @@
             }
 
             $sql = "INSERT INTO `diaryentries` (`id`, `user_id`, `date`, `grateful_text`, `diary_text`, `mood_id`) VALUES (NULL, '$current_user', '$date', '$grateful', '$content', (SELECT `mood_id` FROM `mood` WHERE `user_id` = '$current_user' AND `date` = '$date'))";
-        }
 
-        $rs = mysqli_query($conn, $sql);
-
-        if($rs)
-        {
-            echo "Submitted";
-            header('Location: ' . $_SERVER['HTTP_REFERER']);
+            if (!$conn -> query($sql)) {
+                echo("Error description: " . $conn -> error);
+              }
         }
+        echo "Submitted";
+        header('Location: ' . $_SERVER['HTTP_REFERER']);
     }
 ?>
