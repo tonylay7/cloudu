@@ -138,7 +138,8 @@ if(!$conn){
     </head>
  
     <body>
-        <ul>
+        <div class="navbar"> 
+          <ul>
             <li><a href="WordCloud.php">Word Cloud</a></li>
             <li><a href="Diary.php">Diary</a></li>
             <li><a href="Calendar.html">Calendar</a></li>
@@ -147,7 +148,8 @@ if(!$conn){
             <li><a href="Help.html">Help</a></li>
             <li><a href="AboutUs.html">About Us</a></li>
             <li style="float:right"><a class="active" href="Profile.html">Profile</a></li>
-        </ul>
+          </ul>
+        </div>
         
         <br>
         <form name="diaryEntry" method="post" action="submitDiary.php">

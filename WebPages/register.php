@@ -120,7 +120,7 @@ if (isset($_POST["confirm"])) {
 			<input type="email" name="email" id="email" value="<?php echo $email;?>" required maxlength="40">
 			<br>
 			<br>
-			<input type="checkbox" id="terms" name="terms" value="terms" required><label for="checkbox" style="font-size: 15px;">By creating an account you agree to our <a href="#">Terms & Conditions</a>.</label>
+			<input type="checkbox" id="terms" name="terms" value="terms" required><label for="checkbox" style="font-size: 15px; padding-left: 3px;">By creating an account you agree to our <a class="tnc">Terms & Conditions</a>.</label>
 		    <br>
 		    <input type="submit" value="Create Account">
 		</form>

@@ -29,16 +29,18 @@
 		<script src="../MoodTrackerTest/chart.js/dist/Chart.min.js"></script>
 	</head>
 	<body>
-		<ul>
-			<li><a href="WordCloud.php">Word Cloud</a></li>
-			<li><a href="Diary.php">Diary</a></li>
-			<li><a href="Calendar.html">Calendar</a></li>
-			<li><a href="MoodTracker.php">Mood Tracker</a></li>
-			<li><a href="Resources.html">Resources</a></li>
-			<li><a href="Help.html">Help</a></li>
-			<li><a href="AboutUs.html">About Us</a></li>
-			<li style="float:right"><a class="active" href="Profile.html"><?php echo $current_username ?></a></li>
-		</ul>
+		<div class="navbar"> 
+          <ul>
+            <li><a href="WordCloud.php">Word Cloud</a></li>
+            <li><a href="Diary.php">Diary</a></li>
+            <li><a href="Calendar.html">Calendar</a></li>
+            <li><a href="MoodTracker.php">Mood Tracker</a></li>
+            <li><a href="Resources.html">Resources</a></li>
+            <li><a href="Help.html">Help</a></li>
+            <li><a href="AboutUs.html">About Us</a></li>
+            <li style="float:right"><a class="active" href="Profile.html">Profile</a></li>
+          </ul>
+        </div>
         <br><br><br>
         <div id="boundingBox">
             <div id="chartBackground">

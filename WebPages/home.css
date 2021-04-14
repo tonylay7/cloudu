@@ -97,6 +97,7 @@ h1.welcome{
 h1{
   font-size: 45px;
   padding-bottom: 10px;
+  text-shadow: -1px 1px #549abb;
 }
 
 img {
