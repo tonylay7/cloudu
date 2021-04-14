@@ -16,7 +16,7 @@
       $diaryresult = $conn->query($sqldiary);
       $diaryrow = $diaryresult->fetch_assoc();
 
-      $samplediary = "SELECT * FROM diaryentries WHERE user_id = 31";
+      $samplediary = "SELECT * FROM diaryentries WHERE user_id = 32";
       $sampleresult = $conn->query($samplediary);
       $samplerow = $sampleresult->fetch_assoc();
       if (is_null($diaryrow)){

@@ -142,32 +142,36 @@ if(!$conn){
             </td>
             <br>
             <td><h3>What are you grateful for?<h3></td>
-            <p><td><input style="width:70em ;height:3em;"type="text" name="title" id="title"?></td></p>
             <br>
-
+            <div class="phrasescontainer" style="margin: 0 auto; width: 600px">
+                <button type="button" class="phrases" id="btn1" onclick="invis(this)"></button>
+                <button type="button" class="phrases" id="btn2" onclick="invis(this)"></button>
+                <button type="button" class="phrases" id="btn3" onclick="invis(this)"></button>
+                <button type="button" class="phrases" id="btn4" onclick="invis(this)"></button>
+                <button type="button" class="phrases" id="btn5" onclick="invis(this)"></button>
+                <button type="button" class="phrases" id="btn6" onclick="invis(this)"></button>
+                <button type="button" class="phrases" id="btn7" onclick="invis(this)"></button>
+                <button type="button" class="phrases" id="btn8" onclick="invis(this)"></button>
+                <button type="button" class="phrases" id="btn9" onclick="invis(this)"></button>
+                <button type="button" class="phrases" id="btn10" onclick="invis(this)"></button>
+                <button type="button" class="phrases" id="btn11" onclick="invis(this)"></button>
+                <button type="button" class="phrases" id="btn12" onclick="invis(this)"></button>
+                <button type="button" class="phrases" id="btn13" onclick="invis(this)"></button>
+                <button type="button" class="phrases" id="btn14" onclick="invis(this)"></button>
+                <button type="button" class="phrases" id="btn15" onclick="invis(this)"></button>
+                <button type="button" class="phrases" id="btn16" onclick="invis(this)"></button>
+                <button type="button" class="phrases" id="btn17" onclick="invis(this)"></button>
+                <button type="button" class="phrases" id="btn18" onclick="invis(this)"></button>
+                <button type="button" class="phrases" id="btn19" onclick="invis(this)"></button>
+                <button type="button" class="phrases" id="btn20" onclick="invis(this)"></button>
+                <input type="hidden" id="phrases" name="phrases" value="">
+            </div>
+            <br>
+            <p><td><input style="width:30em ;height:3em;"type="text" name="title" id="title"?></td></p>
+            <br>
             <button type="button" id="submitPhrase">Submit</button>
             <br><br>
-            <button type="button" class="phrases" id="btn1" onclick="invis(this)"></button>
-            <button type="button" class="phrases" id="btn2" onclick="invis(this)"></button>
-            <button type="button" class="phrases" id="btn3" onclick="invis(this)"></button>
-            <button type="button" class="phrases" id="btn4" onclick="invis(this)"></button>
-            <button type="button" class="phrases" id="btn5" onclick="invis(this)"></button>
-            <button type="button" class="phrases" id="btn6" onclick="invis(this)"></button>
-            <button type="button" class="phrases" id="btn7" onclick="invis(this)"></button>
-            <button type="button" class="phrases" id="btn8" onclick="invis(this)"></button>
-            <button type="button" class="phrases" id="btn9" onclick="invis(this)"></button>
-            <button type="button" class="phrases" id="btn10" onclick="invis(this)"></button>
-            <button type="button" class="phrases" id="btn11" onclick="invis(this)"></button>
-            <button type="button" class="phrases" id="btn12" onclick="invis(this)"></button>
-            <button type="button" class="phrases" id="btn13" onclick="invis(this)"></button>
-            <button type="button" class="phrases" id="btn14" onclick="invis(this)"></button>
-            <button type="button" class="phrases" id="btn15" onclick="invis(this)"></button>
-            <button type="button" class="phrases" id="btn16" onclick="invis(this)"></button>
-            <button type="button" class="phrases" id="btn17" onclick="invis(this)"></button>
-            <button type="button" class="phrases" id="btn18" onclick="invis(this)"></button>
-            <button type="button" class="phrases" id="btn19" onclick="invis(this)"></button>
-            <button type="button" class="phrases" id="btn20" onclick="invis(this)"></button>
-            <input type="hidden" id="phrases" name="phrases" value="">
+
 
             <h3>Diary Entry:<h3>
             <td><textarea class ="content" name ="content" cols="130" rows="20" id="diaryText" value=""></textarea></td>
