@@ -56,7 +56,7 @@
             <li><a href="Resources.html">Resources</a></li>
             <li><a href="Help.html">Help</a></li>
             <li><a href="AboutUs.html">About Us</a></li>
-            <li style="float:right"><a class="active" href="Profile.html"><?php echo $current_username ?></a></li>
+            <li style="float:right"><a class="active" href="Profile.php"><?php echo $current_username ?></a></li>
         </ul>
     </div>
     <br><br><br>

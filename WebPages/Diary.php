@@ -127,7 +127,7 @@ if(!$conn){
             <li><a href="Resources.php">Resources</a></li>
             <li><a href="Help.php">Help</a></li>
             <li><a href="AboutUs.php">About Us</a></li>
-            <li style="float:right"><a class="active" href="Profile.html"><?php echo $current_username ?></a></li>
+            <li style="float:right"><a class="active" href="Profile.php"><?php echo $current_username ?></a></li>
           </ul>
         </div>
         
