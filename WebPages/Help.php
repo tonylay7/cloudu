@@ -75,7 +75,7 @@
                 </video>
             </div>
             <br>
-            <p id="first">Got any feedback?<a href="FeedbackForm.html"> Send us Feedback form!</a></p>
+            <p id="first">Got any feedback?<a href="FeedbackForm.php"> Send us Feedback form!</a></p>
         </div>
     </div>
   </body>
