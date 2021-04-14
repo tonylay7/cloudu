@@ -59,7 +59,7 @@
             <li style="float:right"><a class="active" href="Profile.php"><?php echo $current_username ?></a></li>
         </ul>
     </div>
-    <br><br><br>
+    <br><br><br><br><br><br>
     <div id="background">
         <div id="insideBox">
             <h1>Introduction to the website</h1>
