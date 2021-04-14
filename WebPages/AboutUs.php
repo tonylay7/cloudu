@@ -42,7 +42,7 @@
       <br>
       <br>
       <h1>Contact Us</h1>
-      <p>If you have any questions, suggestions, or complaints, please drop us an email at [insert smth here or google form?].</p>
+      <p>If you have any questions, suggestions, or complaints, please drop us an email at cloudu.x6@gmail.com or visit the Help Section to submit a form.</p>
     </div>
 
   </body>
