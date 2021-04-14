@@ -141,7 +141,7 @@ if(!$conn){
                 </h3>
             </td>
             <br>
-            <td><h3>What are You Grateful for?<h3></td>
+            <td><h3>What are you grateful for?<h3></td>
             <p><td><input style="width:70em ;height:3em;"type="text" name="title" id="title"?></td></p>
             <br>
 
@@ -173,7 +173,7 @@ if(!$conn){
             <td><textarea class ="content" name ="content" cols="130" rows="20" id="diaryText" value=""></textarea></td>
 
             <br><br>
-            <h3>What Would You Rate your Average Mood for the Day?<h3>   
+            <h3>What would you rate your average mood for the day?<h3>   
 
             <br>
             <div id="sliderBackground">
