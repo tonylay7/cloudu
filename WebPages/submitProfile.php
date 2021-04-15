@@ -65,7 +65,7 @@
 
                             if ($stmt->execute()) {
                                 echo "1";
-                                // header('Location: Profile.php');
+                                header('Location: Profile.php');
                             }
                         }
                     }
@@ -88,7 +88,7 @@
 
                             if ($stmt->execute()) {
                                 echo "2";
-                                // header('Location: Profile.php');
+                                header('Location: Profile.php');
                             }
                         }
                     }
@@ -100,7 +100,7 @@
 
                         if ($stmt->execute()) {
                             echo "3";
-                            // header('Location: Profile.php');
+                            header('Location: Profile.php');
                         }
                     }
                 }
