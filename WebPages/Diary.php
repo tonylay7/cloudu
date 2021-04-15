@@ -11,7 +11,9 @@
 if(!$conn){
     die("connection failed: " . mysqli_connect_error());
 }
-    // echo "Connected successfully";
+    if (!isset($_COOKIE["current_date"])){
+        $_COOKIE["current_date"] = -99;
+    }
 
     $sql = "SELECT `username` FROM `users` WHERE `id` = $current_user";
     $result = $conn->query($sql);
@@ -22,8 +24,6 @@ if(!$conn){
     $diaryresult = $conn->query($sqld);
 
     if($diaryresult->fetch_assoc()){
-        $sqld = "SELECT * FROM `diaryentries` WHERE `user_id` = $current_user";
-        $diaryresult = $conn->query($sqld);
         while($row = $diaryresult->fetch_assoc()){
             $date[] = $row['date'];
             $gratefulData[] = $row['grateful_text'];
@@ -250,6 +250,13 @@ if(!$conn){
                     var loadDate = document.getElementById('start').value;
                     load(loadDate);
             });
+
+            var current_date = <?php echo json_encode($_COOKIE["current_date"]); ?>;
+            if (current_date == -99){
+                load(<?php echo json_encode(date("Y-m-d")); ?>);
+            }else{
+                load(current_date);
+            }
 
             function load(loadDate){
                 if(loadDate){
