@@ -131,7 +131,16 @@ if(!$conn){
                 position:relative;
                 top:1px;
             }
-
+            #box{
+            margin: 0 auto;
+            background-color: rgb(137, 207, 240);
+            box-shadow: 0px 5px 5px #549abb;
+            border: 5px solid rgb(200, 220, 240, 0.7);
+            height: 53em;
+            width: 70em;
+            padding-top: 1.75em;
+            padding-left: 0.3em;
+        }
             
         </style>
     </head>
@@ -160,61 +169,62 @@ if(!$conn){
                 </h3>
             </td>
             <br>
-            <td><h3>What are you grateful for today?<h3></td>
-            <br>
-            <div class="phrasescontainer" style="margin: 0 auto; width: 600px">
-                <button type="button" class="phrases" id="btn1" onclick="invis(this)"></button>
-                <button type="button" class="phrases" id="btn2" onclick="invis(this)"></button>
-                <button type="button" class="phrases" id="btn3" onclick="invis(this)"></button>
-                <button type="button" class="phrases" id="btn4" onclick="invis(this)"></button>
-                <button type="button" class="phrases" id="btn5" onclick="invis(this)"></button>
-                <button type="button" class="phrases" id="btn6" onclick="invis(this)"></button>
-                <button type="button" class="phrases" id="btn7" onclick="invis(this)"></button>
-                <button type="button" class="phrases" id="btn8" onclick="invis(this)"></button>
-                <button type="button" class="phrases" id="btn9" onclick="invis(this)"></button>
-                <button type="button" class="phrases" id="btn10" onclick="invis(this)"></button>
-                <button type="button" class="phrases" id="btn11" onclick="invis(this)"></button>
-                <button type="button" class="phrases" id="btn12" onclick="invis(this)"></button>
-                <button type="button" class="phrases" id="btn13" onclick="invis(this)"></button>
-                <button type="button" class="phrases" id="btn14" onclick="invis(this)"></button>
-                <button type="button" class="phrases" id="btn15" onclick="invis(this)"></button>
-                <button type="button" class="phrases" id="btn16" onclick="invis(this)"></button>
-                <button type="button" class="phrases" id="btn17" onclick="invis(this)"></button>
-                <button type="button" class="phrases" id="btn18" onclick="invis(this)"></button>
-                <button type="button" class="phrases" id="btn19" onclick="invis(this)"></button>
-                <button type="button" class="phrases" id="btn20" onclick="invis(this)"></button>
-                <input type="hidden" id="phrases" name="phrases" value="">
-            </div>
-            <br>
-            <p><td><input style="width:30em ;height:3em;"type="text" name="title" id="title"?></td></p>
-            <br>
-            <button type="button" id="submitPhrase">Submit</button>
-            <br><br>
+            <div id="box">
+                <td><h3>What are you grateful for today?<h3></td>
+                <br>
+                <div class="phrasescontainer" style="margin: 0 auto; width: 600px">
+                    <button type="button" class="phrases" id="btn1" onclick="invis(this)"></button>
+                    <button type="button" class="phrases" id="btn2" onclick="invis(this)"></button>
+                    <button type="button" class="phrases" id="btn3" onclick="invis(this)"></button>
+                    <button type="button" class="phrases" id="btn4" onclick="invis(this)"></button>
+                    <button type="button" class="phrases" id="btn5" onclick="invis(this)"></button>
+                    <button type="button" class="phrases" id="btn6" onclick="invis(this)"></button>
+                    <button type="button" class="phrases" id="btn7" onclick="invis(this)"></button>
+                    <button type="button" class="phrases" id="btn8" onclick="invis(this)"></button>
+                    <button type="button" class="phrases" id="btn9" onclick="invis(this)"></button>
+                    <button type="button" class="phrases" id="btn10" onclick="invis(this)"></button>
+                    <button type="button" class="phrases" id="btn11" onclick="invis(this)"></button>
+                    <button type="button" class="phrases" id="btn12" onclick="invis(this)"></button>
+                    <button type="button" class="phrases" id="btn13" onclick="invis(this)"></button>
+                    <button type="button" class="phrases" id="btn14" onclick="invis(this)"></button>
+                    <button type="button" class="phrases" id="btn15" onclick="invis(this)"></button>
+                    <button type="button" class="phrases" id="btn16" onclick="invis(this)"></button>
+                    <button type="button" class="phrases" id="btn17" onclick="invis(this)"></button>
+                    <button type="button" class="phrases" id="btn18" onclick="invis(this)"></button>
+                    <button type="button" class="phrases" id="btn19" onclick="invis(this)"></button>
+                    <button type="button" class="phrases" id="btn20" onclick="invis(this)"></button>
+                    <input type="hidden" id="phrases" name="phrases" value="">
+                </div>
+                <br>
+                <p><td><input style="width:30em ;height:3em;"type="text" name="title" id="title"?></td></p>
+                <br>
+                <button type="button" id="submitPhrase">Submit</button>
+                <br><br>
 
 
-            <h3>Diary Entry:<h3>
-            <td><textarea class ="content" name ="content" cols="130" rows="20" id="diaryText" value=""></textarea></td>
+                <h3>Diary Entry:<h3>
+                <td><textarea class ="content" name ="content" cols="130" rows="20" id="diaryText" value=""></textarea></td>
 
-            <br><br>
-            <h3>What would you rate your average mood for the day?<h3>   
-
-            <br>
-            <div id="sliderBackground">
-                <div id="lineDiv" class="lineDiv">
-                    <div id="minBlock" class="minBlock">
-                        <div id="vals" class="vals">0</div>    
+                <br><br>
+                <h3>What would you rate your average mood for the day?<h3>   
+                
+                <br>
+                <div id="sliderBackground">
+                    <div id="lineDiv" class="lineDiv">
+                        <div id="minBlock" class="minBlock">
+                            <div id="vals" class="vals">0</div>    
+                        </div>
                     </div>
                 </div>
+                <br>
+                <h3>Happiness Rating: <span id="msg">0</span></h3>
+                <br> 
+                <input type="hidden" id="mood" name="mood" value="">
+                <button onclick="save()">Save</button>
             </div>
-            <br>
-            <h3>Happiness Rating: <span id="msg">0</span></h3>
-            <br> 
-
-            <input type="hidden" id="mood" name="mood" value="">
-
-            <button onclick="save()">Save</button>
+            
         </form>
-
+        
         <script>  
 
             function save() {
