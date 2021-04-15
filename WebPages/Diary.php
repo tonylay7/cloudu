@@ -11,10 +11,6 @@
 if(!$conn){
     die("connection failed: " . mysqli_connect_error());
 }
-    if (!isset($_COOKIE["current_date"])){
-        $_COOKIE["current_date"] = date("Y-m-d");
-    }
-
     $sql = "SELECT `username` FROM `users` WHERE `id` = $current_user";
     $result = $conn->query($sql);
     $row = $result->fetch_assoc();
