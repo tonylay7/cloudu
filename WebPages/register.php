@@ -52,9 +52,9 @@ function checkdb($username, $email, $password){
 		$stmt->bind_param('sss', $username, $email, $user_password);
 
 		if ($stmt->execute()) {
-	  		$_SESSION["user_id"] = $row['id'];
-		    $_SESSION["username"] = $row['username'];
-			header('Location: Help.php');
+	  		// $_SESSION["user_id"] = $row['id'];
+		    // $_SESSION["username"] = $row['username'];
+			header('Location: home.php');
 		} else {
 		  echo "Error: " . $conn->error;
 		}
