@@ -164,7 +164,7 @@ if(!$conn){
         <button type="submit" disabled style="display: none" aria-hidden="true"></button>
             <td>
                 <h3><label class="start">Date:</label>
-                <input type="date" id="start" name="date" min="2021-01-01" max="2399-12-31" value="">
+                <input type="date" id="start" name="date" min="2021-01-01" max="2399-12-31" value="<?php echo date("Y-m-d"); ?>">
                 <button type="button" id="load" title="Load data for selected day">Load</button>
                 </h3>
             </td>
@@ -260,31 +260,32 @@ if(!$conn){
 
             function load(loadDate){
                 if(loadDate){
-                        var dates = <?php echo json_encode($date); ?>;
-                        var gratefulData = <?php echo json_encode($gratefulData); ?>;
-                        var diaryData = <?php echo json_encode($diaryData); ?>;
-                        var moodData = <?php echo json_encode($moodData); ?>;
+                    document.getElementById('start').value = loadDate;
+                    var dates = <?php echo json_encode($date); ?>;
+                    var gratefulData = <?php echo json_encode($gratefulData); ?>;
+                    var diaryData = <?php echo json_encode($diaryData); ?>;
+                    var moodData = <?php echo json_encode($moodData); ?>;
 
-                        for(i=0;i<dates.length;i++){
-                            if(loadDate == dates[i]){
-                                document.getElementById('diaryText').value = diaryData[i];
-                                document.getElementById('msg').innerText = moodData[i];
-                                document.getElementById('vals').innerText = moodData[i];
-                                var gratefuls = gratefulData[i].split(",");
-                                console.log(gratefuls.length);
-                                for(j=0;j<(gratefuls.length);j++){
-                                    document.getElementById('btn' + (j+1).toString()).style.display = "inline-block";
-                                    document.getElementById('btn' + (j+1).toString()).innerText = gratefuls[j];
-                                }
+                    for(i=0;i<dates.length;i++){
+                        if(loadDate == dates[i]){
+                            document.getElementById('diaryText').value = diaryData[i];
+                            document.getElementById('msg').innerText = moodData[i];
+                            document.getElementById('vals').innerText = moodData[i];
+                            var gratefuls = gratefulData[i].split(",");
+                            console.log(gratefuls.length);
+                            for(j=0;j<(gratefuls.length);j++){
+                                document.getElementById('btn' + (j+1).toString()).style.display = "inline-block";
+                                document.getElementById('btn' + (j+1).toString()).innerText = gratefuls[j];
                             }
                         }
                     }
-                    else{
-                        document.getElementById('title').value = "";
-                        document.getElementById('diaryText').value = "";
-                        document.getElementById('msg').innerText = "0";
-                        document.getElementById('vals').innerText = "0";
-                    }
+                }
+                else{
+                    document.getElementById('title').value = "";
+                    document.getElementById('diaryText').value = "";
+                    document.getElementById('msg').innerText = "0";
+                    document.getElementById('vals').innerText = "0";
+                }
             }
 
             document.getElementById('submitPhrase').addEventListener('click', function() {
