@@ -113,7 +113,26 @@ if(!$conn){
 
             .phrases{
                 display: none;
+                background-color:#45adc7;
+                border-radius:28px;
+                border:1px solid #1971ab;
+                cursor:pointer;
+                color:#ffffff;
+                font-family:Arial;
+                font-size:17px;
+                padding:16px 31px;
+                text-decoration:none;
+                text-shadow:0px 1px 0px #162329;
             }
+            .phrases:hover {
+                background-color:#2a71bd;
+            }
+            .phrases:active {
+                position:relative;
+                top:1px;
+            }
+
+            
         </style>
     </head>
  
