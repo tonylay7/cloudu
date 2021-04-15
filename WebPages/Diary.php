@@ -113,7 +113,26 @@ if(!$conn){
 
             .phrases{
                 display: none;
+                background-color:#45adc7;
+                border-radius:28px;
+                border:1px solid #1971ab;
+                cursor:pointer;
+                color:#ffffff;
+                font-family:Arial;
+                font-size:17px;
+                padding:16px 31px;
+                text-decoration:none;
+                text-shadow:0px 1px 0px #162329;
             }
+            .phrases:hover {
+                background-color:#2a71bd;
+            }
+            .phrases:active {
+                position:relative;
+                top:1px;
+            }
+
+            
         </style>
     </head>
  
@@ -141,7 +160,7 @@ if(!$conn){
                 </h3>
             </td>
             <br>
-            <td><h3>What are you grateful for?<h3></td>
+            <td><h3>What are you grateful for today?<h3></td>
             <br>
             <div class="phrasescontainer" style="margin: 0 auto; width: 600px">
                 <button type="button" class="phrases" id="btn1" onclick="invis(this)"></button>
