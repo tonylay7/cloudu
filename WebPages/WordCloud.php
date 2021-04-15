@@ -24,6 +24,8 @@
         $title = "This is just a sample wordcloud, enter things that you're grateful for every day to create your own!";
       }
       else{
+        $sqldiary = "SELECT * FROM diaryentries WHERE user_id = $current_user";
+        $diaryresult = $conn->query($sqldiary);
         while($diaryrow = $diaryresult->fetch_assoc()){
           $texts[] = $diaryrow['grateful_text'];
         }
@@ -52,11 +54,16 @@
 
     <style type="text/css">
       html,
-      body,
-      #container {
+      body{
         width: 100%;
         height: 100%;
         margin: 0;
+        padding: 0;
+      }
+      #container {
+        width: 90%;
+        height: 100%;
+        margin: 0 auto;
         padding: 0;
       }
       .container {
@@ -86,7 +93,7 @@
         <li style="float:right"><a class="active" href="Profile.php"><?php echo $current_username ?></a></li>
       </ul>
     </div>
-    <br><br> <!--TEMP FIX FOR STYLING ISSUE-->
+    <br><br><br><br> <!--TEMP FIX FOR STYLING ISSUE-->
   <div id="container" style="height: 700px"></div>
     <script type="text/javascript">
     var db_texts = <?php echo json_encode($texts); ?>;
