@@ -100,7 +100,7 @@ session_start();
           <br>
 	      <br>
 	      <h1 class="slide text">Contact Us</h1>
-	      <p class="slide text">If you have any questions, suggestions, or complaints, please drop us an email at [insert smth here or google form?].</p>
+	      <p class="slide text">If you have any questions, suggestions, or complaints, please drop us an email at cloudu.x6@gmail.com</p>
 	    </div>
 	  </div>
 

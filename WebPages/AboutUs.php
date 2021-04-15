@@ -31,7 +31,7 @@
         <li><a href="Resources.php">Resources</a></li>
         <li><a href="Help.php">Help</a></li>
         <li><a href="AboutUs.php">About Us</a></li>
-        <li style="float:right"><a class="active" href="Profile.html"><?php echo $current_username ?></a></li>
+        <li style="float:right"><a class="active" href="Profile.php"><?php echo $current_username ?></a></li>
       </ul>
     </div>
 
@@ -42,7 +42,7 @@
       <br>
       <br>
       <h1>Contact Us</h1>
-      <p>If you have any questions, suggestions, or complaints, please drop us an email at [insert smth here or google form?].</p>
+      <p>If you have any questions, suggestions, or complaints, please drop us an email at cloudu.x6@gmail.com or visit the Help Section to submit a form.</p>
     </div>
 
   </body>
