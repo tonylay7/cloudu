@@ -12,7 +12,7 @@ if(!$conn){
     die("connection failed: " . mysqli_connect_error());
 }
     if (!isset($_COOKIE["current_date"])){
-        $_COOKIE["current_date"] = -99;
+        $_COOKIE["current_date"] = date("Y-m-d");
     }
 
     $sql = "SELECT `username` FROM `users` WHERE `id` = $current_user";
@@ -262,11 +262,12 @@ if(!$conn){
 
             function load(loadDate){
                 if(loadDate){
-                        var dates = <?php echo json_encode($date); ?>;
-                        console.log(dates);
-                        var gratefulData = <?php echo json_encode($gratefulData); ?>;
-                        var diaryData = <?php echo json_encode($diaryData); ?>;
-                        var moodData = <?php echo json_encode($moodData); ?>;
+                    document.getElementById('start').value = loadDate;
+                    var dates = <?php echo json_encode($date); ?>;
+                    console.log(dates);
+                    var gratefulData = <?php echo json_encode($gratefulData); ?>;
+                    var diaryData = <?php echo json_encode($diaryData); ?>;
+                    var moodData = <?php echo json_encode($moodData); ?>;
 
                     for(i=0;i<dates.length;i++){
                         if(loadDate == dates[i]){
