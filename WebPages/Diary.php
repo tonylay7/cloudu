@@ -24,6 +24,8 @@ if(!$conn){
     $diaryresult = $conn->query($sqld);
 
     if($diaryresult->fetch_assoc()){
+        $sqld = "SELECT * FROM `diaryentries` WHERE `user_id` = $current_user";
+        $diaryresult = $conn->query($sqld);
         while($row = $diaryresult->fetch_assoc()){
             $date[] = $row['date'];
             $gratefulData[] = $row['grateful_text'];
@@ -260,11 +262,11 @@ if(!$conn){
 
             function load(loadDate){
                 if(loadDate){
-                    document.getElementById('start').value = loadDate;
-                    var dates = <?php echo json_encode($date); ?>;
-                    var gratefulData = <?php echo json_encode($gratefulData); ?>;
-                    var diaryData = <?php echo json_encode($diaryData); ?>;
-                    var moodData = <?php echo json_encode($moodData); ?>;
+                        var dates = <?php echo json_encode($date); ?>;
+                        console.log(dates);
+                        var gratefulData = <?php echo json_encode($gratefulData); ?>;
+                        var diaryData = <?php echo json_encode($diaryData); ?>;
+                        var moodData = <?php echo json_encode($moodData); ?>;
 
                     for(i=0;i<dates.length;i++){
                         if(loadDate == dates[i]){

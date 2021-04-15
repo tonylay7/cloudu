@@ -59,7 +59,7 @@
         </div>
         <br><br>
         <?php
-            $sql = "SELECT `mood`, `date` FROM `mood` WHERE `user_id` = $current_user";
+            $sql = "SELECT `mood`, `date` FROM `mood` WHERE `user_id` = $current_user ORDER BY `date` DESC";
             $result = $conn->query($sql);
             $data = array();
             $date = array();
@@ -188,15 +188,31 @@
 
             function getWeekValues(week) {
                 var output = [];
-                var buffer,buffer2 = "";
                 for(i=0;i<7;i++){
-                    if (week.getMonth()<9){
-                    buffer = "0";
+                    var buffer = "";
+                    var buffer2 = "";
+                    var month = week.getMonth()+1;
+                    var day = week.getDate()+i;
+                    var year = week.getFullYear();
+                    if(((new Date(year, month, 0)).getDate() - day) < 0){
+                        var temp = (new Date(year, month, 0).getDate() - day);
+                        day = Math.abs(temp);
+                        if(month == 12){
+                            month = 1;
+                            year = year + 1;
+                        }
+                        else{
+                            month = month + 1;
+                        }
                     }
-                    if (week.getDate() < 10){
+                    if (month < 9){
+                        buffer = "0";
+                    }
+                    if (day < 10){
                         buffer2 = "0";
                     }
-                    var dateStart = week.getFullYear() + "-" + buffer + (week.getMonth()+1)  + "-" + buffer2 + (week.getDate()+i);
+                    var dateStart = year + "-" + buffer + (month)  + "-" + buffer2 + (day);
+                    console.log(dateStart);
                     var index = moodValueDates.indexOf(dateStart);
                     output.push(moodValues[index]);
                 }
