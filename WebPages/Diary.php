@@ -224,6 +224,21 @@ if(!$conn){
         </form>
         
         <script>
+
+            function save() {
+                document.getElementById('mood').value = document.getElementById('vals').innerText;
+                for(i=1;i<21;i++){
+                    if(document.getElementById('btn' + i.toString()).style.display === "inline-block"){
+                        if(document.getElementById('phrases').value === ""){
+                            document.getElementById('phrases').value = document.getElementById('btn' + i.toString()).innerText;
+                        }
+                        else{
+                            document.getElementById('phrases').value += "," + document.getElementById('btn' + i.toString()).innerText;
+                        }
+                    }
+                }
+            };
+
             function invis(obj) {
                 document.getElementById(obj.id).style.display = "none";
                 document.getElementById(obj.id).innerText = "";
