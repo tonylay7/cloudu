@@ -261,10 +261,10 @@ if(!$conn){
             }
 
             function load(loadDate){
+                console.log(loadDate);
                 if(loadDate){
                     document.getElementById('start').value = loadDate;
                     var dates = <?php echo json_encode($date); ?>;
-                    console.log(dates);
                     var gratefulData = <?php echo json_encode($gratefulData); ?>;
                     var diaryData = <?php echo json_encode($diaryData); ?>;
                     var moodData = <?php echo json_encode($moodData); ?>;
@@ -275,10 +275,19 @@ if(!$conn){
                             document.getElementById('msg').innerText = moodData[i];
                             document.getElementById('vals').innerText = moodData[i];
                             var gratefuls = gratefulData[i].split(",");
-                            console.log(gratefuls.length);
                             for(j=0;j<(gratefuls.length);j++){
                                 document.getElementById('btn' + (j+1).toString()).style.display = "inline-block";
                                 document.getElementById('btn' + (j+1).toString()).innerText = gratefuls[j];
+                            }
+                            break;
+                        }
+                        else{
+                            document.getElementById('diaryText').value = "";
+                            document.getElementById('msg').innerText = "0";
+                            document.getElementById('vals').innerText = "0";
+                            for(j=0;j<20;j++){
+                                document.getElementById('btn' + (j+1).toString()).style.display = "none";
+                                document.getElementById('btn' + (j+1).toString()).innerText = 0;
                             }
                         }
                     }
@@ -288,6 +297,10 @@ if(!$conn){
                     document.getElementById('diaryText').value = "";
                     document.getElementById('msg').innerText = "0";
                     document.getElementById('vals').innerText = "0";
+                    for(j=0;j<20;j++){
+                        document.getElementById('btn' + (j+1).toString()).style.display = "none";
+                        document.getElementById('btn' + (j+1).toString()).innerText = 0;
+                    }
                 }
             }
 
