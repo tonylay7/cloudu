@@ -31,8 +31,19 @@
     $newPassword = $_POST['newPassword'];
     $oldPassword = $_POST['oldPassword'];
 
-    // function updatedb($newUsername, $newEmail, $newPassword, $oldPassword, $current_username){
-    //     global $conn;
+    $username = test_input($newUsername);
+    $password_new = test_input($newPassword);
+    $email = test_input($newEmail);
+    if ($newUsername != "" && strlen($username)<5) {
+        echo "Username should be at least 5 characters";
+    }
+    else if ($newEmail != "" && !filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        echo "Invalid email format";
+    }
+    else if ($newPassword != "" && strlen($password_new)<8) {
+        echo "Password should be at least 8 characters";
+    }
+    else{
         if($oldPassword){
             $stmt = $conn->prepare("SELECT `id`,`email`, `password` FROM `users` WHERE `username`= ?");
             $stmt->bind_param('s', $current_username);
@@ -112,21 +123,5 @@
         else{
             echo "Please Enter Old Password";
         }
-    // }
-
-    // $username = test_input($newUsername);
-    // $password_new = test_input($newPassword);
-    // $email = test_input($newEmail);
-    // if ($newUsername != "" && strlen($username)<5) {
-    //     echo "Username should be at least 5 characters";
-    // }
-    // else if ($newEmail != "" && !filter_var($email, FILTER_VALIDATE_EMAIL)) {
-    //     echo "Invalid email format";
-    // }
-    // else if ($newPassword != "" && strlen($password_new)<8) {
-    //     echo "Password should be at least 8 characters";
-    // }
-    // else{
-    //     updatedb($newUsername, $newEmail, $newPassword, $oldPassword, $current_username);
-    // }
+    }
 ?>
