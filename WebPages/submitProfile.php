@@ -31,8 +31,8 @@
     $newPassword = $_POST['newPassword'];
     $oldPassword = $_POST['oldPassword'];
 
-    function updatedb($newUsername, $newEmail, $newPassword, $oldPassword, $current_username){
-        global $conn;
+    // function updatedb($newUsername, $newEmail, $newPassword, $oldPassword, $current_username){
+    //     global $conn;
         if($oldPassword){
             $stmt = $conn->prepare("SELECT `id`,`email`, `password` FROM `users` WHERE `username`= ?");
             $stmt->bind_param('s', $current_username);
@@ -60,12 +60,12 @@
                             }
                         }
                         else{
-                            echo $newUsername; echo $current_user;
                             $stmt = $conn->prepare("UPDATE `users` SET `username`=? WHERE `id`=?");
                             $stmt->bind_param('ss', $newUsername, $current_user);
 
                             if ($stmt->execute()) {
-                                header('Location: Profile.php');
+                                echo "1";
+                                // header('Location: Profile.php');
                             }
                         }
                     }
@@ -87,7 +87,8 @@
                             $stmt->bind_param('ss', $newEmail, $current_user);
 
                             if ($stmt->execute()) {
-                                header('Location: Profile.php');
+                                echo "2";
+                                // header('Location: Profile.php');
                             }
                         }
                     }
@@ -98,11 +99,9 @@
                         $stmt->bind_param('ss', $newPassword, $current_user);
 
                         if ($stmt->execute()) {
-                            header('Location: Profile.php');
+                            echo "3";
+                            // header('Location: Profile.php');
                         }
-                    }
-                    else{
-                        echo "There has been and error please try again";
                     }
                 }
                 else{
@@ -113,21 +112,21 @@
         else{
             echo "Please Enter Old Password";
         }
-    }
+    // }
 
-    $username = test_input($newUsername);
-    $password_new = test_input($newPassword);
-    $email = test_input($newEmail);
-    if ($newUsername != "" && strlen($username)<5) {
-        echo "Username should be at least 5 characters";
-    }
-    else if ($newEmail != "" && !filter_var($email, FILTER_VALIDATE_EMAIL)) {
-        echo "Invalid email format";
-    }
-    else if ($newPassword != "" && strlen($password_new)<8) {
-        echo "Password should be at least 8 characters";
-    }
-    else{
-        updatedb($newUsername, $newEmail, $newPassword, $oldPassword, $current_username);
-    }
+    // $username = test_input($newUsername);
+    // $password_new = test_input($newPassword);
+    // $email = test_input($newEmail);
+    // if ($newUsername != "" && strlen($username)<5) {
+    //     echo "Username should be at least 5 characters";
+    // }
+    // else if ($newEmail != "" && !filter_var($email, FILTER_VALIDATE_EMAIL)) {
+    //     echo "Invalid email format";
+    // }
+    // else if ($newPassword != "" && strlen($password_new)<8) {
+    //     echo "Password should be at least 8 characters";
+    // }
+    // else{
+    //     updatedb($newUsername, $newEmail, $newPassword, $oldPassword, $current_username);
+    // }
 ?>
