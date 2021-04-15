@@ -49,7 +49,7 @@ const renderCalendar = () => {
   let days = "";
 
   for (let x = firstDayIndex; x > 0; x--) {
-    days += `<div class="prev-date">${prevLastDay - x + 1}</div>`;
+    days += `<div class="prev-date" onclick="passtodiary(date.getFullYear(),date.getMonth()-1,${prevLastDay - x + 1})">${prevLastDay - x + 1}</div>`;
   }
 
   for (let i = 1; i <= lastDay; i++) {
@@ -57,16 +57,16 @@ const renderCalendar = () => {
       i === new Date().getDate() &&
       date.getMonth() === new Date().getMonth()
     ) {
-      days += `<div class="today">${i}</div>`;
+      days += `<div class="today" onclick="passtodiary(date.getFullYear(),date.getMonth(),${i})">${i}</div>`;
     } else {
-      days += `<div>${i}</div>`;
+      days += `<div onclick="passtodiary(date.getFullYear(),date.getMonth(),${i})">${i}</div>`;
     }
   }
 
   for (let j = 1; j <= nextDays; j++) {
-    days += `<div class="next-date">${j}</div>`;
-    monthDays.innerHTML = days;
+    days += `<div class="next-date" onclick="passtodiary(date.getFullYear(),date.getMonth() + 1,${j})">${j}</div>`;
   }
+  monthDays.innerHTML = days;
 };
 
 document.querySelector(".prev").addEventListener("click", () => {
@@ -80,3 +80,17 @@ document.querySelector(".next").addEventListener("click", () => {
 });
 
 renderCalendar();
+
+function addLeadingZeros(n) {
+  if (n <= 9) {
+    return "0" + n;
+  }else{
+    return n;
+  }
+}
+
+function passtodiary(year, month, date){
+  var fulldate = year+"-"+addLeadingZeros(month+1)+"-"+addLeadingZeros(date); 
+  document.cookie = "current_date =" + fulldate;
+  location.href = "Diary.php";
+}
