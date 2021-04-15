@@ -141,7 +141,7 @@ if(!$conn){
                 </h3>
             </td>
             <br>
-            <td><h3>What are you grateful for?<h3></td>
+            <td><h3>What are you grateful for today?<h3></td>
             <br>
             <div class="phrasescontainer" style="margin: 0 auto; width: 600px">
                 <button type="button" class="phrases" id="btn1" onclick="invis(this)"></button>
