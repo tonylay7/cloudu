@@ -51,14 +51,18 @@
                 height: 13em;
                 width: 28em;
             }
-            h1, label{
+            h1, h3, label{
                 color: rgb(137, 207, 240);
             }
             .leftLabel{
                 float: left;
             }
-            .rightLabel {
+            .rightLabel{
                 float: right;
+            }
+            input{
+                -ms-transform: translateY(-20%);
+                transform: translateY(-20%);
             }
         </style>
     </head>
@@ -79,13 +83,20 @@
         <div id="background">
             <div id="insideBox">
                 <h1 id="title">Profile</h1>
-                <br><br><br><br><br>
+                <h3>Fill out any boxes for the data you want to change</h3>
+                <br><br><br>
                 <div id="insideBox2">
-                    <label class="leftLabel">Username:</label><label class="rightLabel" id="username">Test</label>
-                    <br><br><br>
-                    <label class="leftLabel">E-Mail:</label><label class="rightLabel" id="email">Test</label>
+                    <form name="editProfile" method="post" action="submitProfile.php">
+                        <label class="leftLabel">New Username:</label><input type="text" name="username" id="username" class="rightLabel" title="Enter New Username, if you want to change">
+                        <br><br><br>
+                        <label class="leftLabel">E-Mail:</label><input type="text" name="email" id="email" class="rightLabel" title="Enter New E-Mail, if you want to change">
+                        <br><br><br>
+                        <label class="leftLabel">New Password:</label><input type="password" name="newPassword" id="newPassword" class="rightLabel" title="Enter New Password, if you want to change">
+                        <br><br><br>
+                        <label title="Required" class="leftLabel"><span style="color: red">*</span>Old Password:</label><input type="password" name="oldPassword" id="oldPassword" class="rightLabel" title="Enter Old Password">
+                        <br><br><br>
                 </div>
-                <button onclick="location.href='ProfileEdit.php'">Edit Account Details</button>
+                <button type="submit" title="Click to Save">Save</button>
             </div>
         </div>  
 
