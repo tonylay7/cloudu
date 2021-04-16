@@ -94,3 +94,7 @@ function passtodiary(year, month, date){
   document.cookie = "current_date =" + fulldate;
   location.href = "Diary.php";
 }
+
+function formatdate(year, month, date){
+  return (year+"-"+addLeadingZeros(month+1)+"-"+addLeadingZeros(date));
+}

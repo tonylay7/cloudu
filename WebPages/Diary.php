@@ -255,7 +255,6 @@ if(!$conn){
 
             var current_date = <?php echo json_encode($_COOKIE["current_date"]); ?>;
             load(current_date);
-            console.log(current_date);
 
             function load(loadDate){
                 console.log(loadDate);
