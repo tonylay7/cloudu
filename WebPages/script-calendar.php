@@ -109,21 +109,6 @@ function coloring(year, month, date){
     var b = 180 - mood
     return ("rgb("+r+",127,"+b+")");
   }
-
-  // for(i=0;i<dates.length;i++){
-  //   if(fullDate == dates[i])
-  //   { 
-  //     document.getElementById('msg').innerText = moodData[i];
-  //     document.getElementById('vals').innerText = moodData[i];
-  //     var gratefuls = gratefulData[i].split(",");
-  //       for(j=0;j<(gratefuls.length);j++){
-  //           document.getElementById('btn' + (j+1).toString()).style.display = "inline-block";
-  //           document.getElementById('btn' + (j+1).toString()).innerText = gratefuls[j];
-  //       }
-  //       break;
-  //   }
-  //   return "#74badbff";
-  // }
 }
 
 var orange = coloring(2021,3,14);
