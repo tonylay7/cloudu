@@ -253,7 +253,8 @@ if(!$conn){
                     load(loadDate);
             });
 
-            var current_date = document.cookie["current_date"];
+            var current_date = <?php echo json_encode($_COOKIE["current_date"]); ?>;
+            console.log(current_date);
             load(current_date);
 
             function load(loadDate){
