@@ -17,6 +17,22 @@
     $result = $conn->query($sql);
     $row = $result->fetch_assoc();
     $current_username = $row["username"];
+
+    $sqld = "SELECT * FROM `diaryentries` WHERE `user_id` = $current_user";
+    $diaryresult = $conn->query($sqld);
+
+    if($diaryresult->fetch_assoc()){
+        $sqld = "SELECT * FROM `diaryentries` WHERE `user_id` = $current_user";
+        $diaryresult = $conn->query($sqld);
+        while($row = $diaryresult->fetch_assoc()){
+            $gratefulDate[] = $row['date'];
+            $gratefulData[] = $row['grateful_text'];
+        };
+    }
+    else{
+        $gratefulDate[] = "";
+        $gratefulData[] = "";
+    }
 ?>
 
 <!DOCTYPE html>
@@ -109,13 +125,38 @@
                         mode: 'index',
                         intersect: false,
                         caretSize: 4,
+                        custom: function(tooltip) {
+                            if (!tooltip) return;
+                            // disable displaying the color box;
+                            tooltip.displayColors = false;
+                        },
                         callbacks: {
                             title: function(tooltipItems, config) {
-                                return tooltipItems[0].xLabel;
+                                if(config.labels.length == 7){
+                                    var dates = getWeekDates(currentWeek);
+                                    var title = (tooltipItems[0].xLabel + " " + dates[tooltipItems[0].index]) + superscript(dates[tooltipItems[0].index]);
+                                }
+                                else{
+                                    var title = tooltipItems[0].xLabel;
+                                }
+                                return title;
                             },
                             label : function(tooltipItem, config) {
                                 // test(config.datasets[tooltipItem.datasetIndex].data[tooltipItem.index]);
-                                return 'Mood Value: ' + config.datasets[tooltipItem.datasetIndex].data[tooltipItem.index];
+                                if(config.labels.length == 7){
+                                    var grateful = getGrateful(currentWeek, tooltipItem.xLabel);
+                                    console.log(grateful);
+                                    return [
+                                        'Mood Value: ' + config.datasets[tooltipItem.datasetIndex].data[tooltipItem.index],
+                                        "Things you were Grateful for:",
+                                        grateful[tooltipItem.index]
+                                        ];
+                                }
+                                else{
+                                    return [
+                                        'Mood Value: ' + config.datasets[tooltipItem.datasetIndex].data[tooltipItem.index]
+                                        ]
+                                }
                             }
                         }
                     },
@@ -148,48 +189,100 @@
                 }
             };
 
-            // function colorShift(currentColor, nextColor){
-            //     var colors = [currentColor, nextColor];
-            //     var currentIndex = 0;
+            function getGrateful(week, day){
+                var output = ["", "", "", "", "", "", ""];
+                day = day.slice(0, -2);
+                gratefulDate = <?php echo json_encode($gratefulDate); ?>;
+                gratefulData = <?php echo json_encode($gratefulData); ?>;
+                thisWeek = getWeek(week);
+                for(i=0; i<gratefulDate.length; i++){
+                    for(j=0; j<thisWeek.length; j++){
+                        if(gratefulDate[i] == thisWeek[j]){
+                            console.log(gratefulDate[i]);
+                            console.log(gratefulData[i]);
+                            output[j] = gratefulData[i];
+                            break;
+                        }
+                    }
+                }
+                return output;
+                
+            }
 
-            //     setInterval(function () {
-            //         document.getElementById("chartBackground").style.backgroundColor = colors[currentIndex];
-            //         currentIndex++;
-            //         if (currentIndex == undefined || currentIndex >= colors.length) {
-            //             currentIndex = 0;
-            //         }
-            //     }, 1000);
-            //     console.log("wut");
-            // }
+            function superscript(day){
+                day = day.toString();
+                var first = day.charAt(0);
+                var last = day.slice(-1);
+                if(first == 1 && day.length >1){
+                    return "ᵗʰ";
+                }
+                else if(last == 1){
+                    return "ˢᵗ";
+                }
+                else if(last == 2){
+                    return "ⁿᵈ";
+                }
+                else if(last == 3){
+                    return "ʳᵈ";
+                }
+                return "ᵗʰ";
+            }
 
-            // // function graphColor(colorValue){
-            // //     Chart.plugins.register({
-            // //     beforeDraw: function(chartInstance, easing) {
-            // //         var ctx = chartInstance.chart.ctx;
-            // //         ctx.fillStyle = colorValue;
-            // //         var chartArea = chartInstance.chartArea;
-            // //         ctx.fillRect(chartArea.left, chartArea.top, chartArea.right - chartArea.left, chartArea.bottom - chartArea.top);
-            // //     }
-            // //     });
-            // // }
+            function getWeekDates(week){
+                var output = [];
+                var temp;
+                for(i=0;i<7;i++){
+                    var month = week.getMonth()+1;
+                    var day = week.getDate()+i;
+                    var year = week.getFullYear();
+                    if(((new Date(year, month, 0)).getDate() - day) < 0){
+                        var temp = (new Date(year, month, 0).getDate() - day);
+                        day = Math.abs(temp);
+                        if(month == 12){
+                            month = 1;
+                            year = year + 1;
+                        }
+                        else{
+                            month = month + 1;
+                        }
+                    }
+                    var dateStart = day;
+                    output.push(dateStart);
+                }
+                return output;
+            }
 
-            // function test(dataPoint){
-            //     var colorValue;
-            //     if(dataPoint < 25){
-            //         colorValue = "blue";
-            //     }
-            //     else if(dataPoint < 50){
-            //         colorValue = "lightblue";
-            //     }
-            //     else if(dataPoint < 75){
-            //         colorValue = "green";
-            //     }
-            //     else{
-            //         colorValue = "yellow";
-            //     }
-            //     colorShift(currentColor, colorValue);
-            //     currentColor = colorValue;
-            // };
+            function getWeek(week){
+                var output = [];
+                for(i=0;i<7;i++){
+                    var buffer = "";
+                    var buffer2 = "";
+                    var month = week.getMonth()+1;
+                    var day = week.getDate()+i;
+                    var year = week.getFullYear();
+                    if(((new Date(year, month, 0)).getDate() - day) < 0){
+                        var temp = (new Date(year, month, 0).getDate() - day);
+                        day = Math.abs(temp);
+                        if(month == 12){
+                            month = 1;
+                            year = year + 1;
+                        }
+                        else{
+                            month = month + 1;
+                        }
+                    }
+                    if (month < 9){
+                        buffer = "0";
+                    }
+                    if (day < 10){
+                        buffer2 = "0";
+                    }
+                    var dateStart = year + "-" + buffer + (month)  + "-" + buffer2 + (day);
+                    console.log(dateStart);
+                    output.push(dateStart);
+                }
+                return output;
+            }
 
             function getWeekValues(week) {
                 var output = [];
