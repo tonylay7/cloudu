@@ -91,15 +91,10 @@ session_start();
 	  </div>
 
 	  <div class="mySlides fade">
-	  	<div class="promo-images">
-	      <img style="height:57%" src="images/diary.png">
-	      <img style="height:57%" src="images/moodgraph.png">
-		</div>
-		<div  style="float: bottom;">
+	  	<img style="max-width:90%; margin-top: 30px;" src="images/slide3sample.png">
 	    <h1 class="slide text">Diary and Mood Tracker</h1>
 	    <p class="slide text">Our website also has a diary for your daily thoughts and happiness level.</p>
 		<p class="slide text">This enables your very own mood tracker! You can use it to look for patterns in your mood over time.</p>
-		</div>
 	  </div>
 
 	  <div class="mySlides fade">
