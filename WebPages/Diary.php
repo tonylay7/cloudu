@@ -73,10 +73,27 @@ if(!$conn){
               box-sizing: border-box;
             }
 
+            input[type=date]{
+                font-size: 20px;
+            }
+
+            button {
+              background-color:#4b9bc9;
+              color: white;
+              padding: 7px 20px;
+              margin: 8px 0;
+              border: solid;
+              border-color: #2b7ba9;
+              border-width: 1px;
+              border-radius: 4px;
+              cursor: pointer;
+              font-size: 15px;
+            }
+
             .lineDiv {
                 position: relative;
                 height: 20px;      
-                background:linear-gradient(80deg,rgb(115, 187, 220),rgb(255, 127, 80));
+                background:linear-gradient(80deg,rgb(55, 127, 180),rgb(255, 127, 80));
                 width: 380px;
                 margin: 60px auto;
             }
@@ -151,7 +168,7 @@ if(!$conn){
             background-color: rgb(137, 207, 240);
             box-shadow: 0px 5px 5px #549abb;
             border: 5px solid rgb(200, 220, 240, 0.7);
-            height: 55em;
+            height: auto;
             width: 45em;
             padding: 15px;
             }
