@@ -58,6 +58,19 @@ if(!$conn){
               font-size: 30px;
               color: white;
             }
+
+            textarea{
+              font-size: 15px;
+            border-radius: 4px;
+              box-sizing: border-box;
+            }
+
+            input[type=text]{
+              font-size: 15px;
+              border-radius: 4px;
+              box-sizing: border-box;
+            }
+
             .lineDiv {
                 position: relative;
                 height: 20px;      
@@ -138,8 +151,8 @@ if(!$conn){
             background-color: rgb(137, 207, 240);
             box-shadow: 0px 5px 5px #549abb;
             border: 5px solid rgb(200, 220, 240, 0.7);
-            height: 67em;
-            width: 70em;
+            height: 55em;
+            width: 45em;
             padding-top: 1em;
             padding-left: 0.3em;
         }
@@ -274,7 +287,6 @@ if(!$conn){
             }
 
             var current_date = getCookie("current_date");
-            console.log(current_date);
             load(current_date);
 
             function load(loadDate){
