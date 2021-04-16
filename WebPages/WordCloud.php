@@ -48,7 +48,7 @@
     <link href="https://cdn.anychart.com/releases/v8/css/anychart-ui.min.css" type="text/css" rel="stylesheet">
     <link href="https://cdn.anychart.com/releases/v8/fonts/css/anychart-font.min.css" type="text/css" rel="stylesheet">
 
-    <link rel="stylesheet" type="text/css" href="styles.css">
+    <link rel="stylesheet" type="text/css" href="style-wordcloud.css">
     <link
           href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap"
           rel="stylesheet"
@@ -101,7 +101,7 @@
       </ul>
     </div>
     <br><br><br><br> <!--TEMP FIX FOR STYLING ISSUE-->
-  <div id="container" style="height: 700px"></div>
+  <div id="container" style="height: 700px;"></div>
     <script type="text/javascript">
     var db_texts = <?php echo json_encode($texts); ?>;
     var charttitle = "<?php echo $title; ?>";
