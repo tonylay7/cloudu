@@ -64,6 +64,7 @@ if(!$conn){
               border-radius: 4px;
               box-sizing: border-box;
               resize: none;
+              width: 100%;
             }
 
             input[type=text]{
@@ -152,8 +153,7 @@ if(!$conn){
             border: 5px solid rgb(200, 220, 240, 0.7);
             height: 55em;
             width: 45em;
-            padding-top: 1em;
-            padding-left: 0.3em;
+            padding: 15px;
             }
             
         </style>
@@ -218,7 +218,7 @@ if(!$conn){
 
 
                 <h2>Diary Entry:<h2>
-                <td><textarea class ="content" name ="content" cols="71" rows="20" id="diaryText" value=""></textarea></td>
+                <td><textarea class ="content" name ="content" rows="20" id="diaryText" value=""></textarea></td>
 
                 <br><br>
                 <h2>How happy did you feel today?<h2>   
