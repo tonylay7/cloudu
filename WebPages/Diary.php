@@ -162,6 +162,7 @@ if(!$conn){
     <body>
         <div class="navbar"> 
           <ul>
+            <img src="images/cloudu_white.svg" width="100" height="50" style="float:left; padding: 3px 0px 0px 0px" > 
             <li><a href="WordCloud.php">Word Cloud</a></li>
             <li><a href="Diary.php">Diary</a></li>
             <li><a href="Calendar.php">Calendar</a></li>
