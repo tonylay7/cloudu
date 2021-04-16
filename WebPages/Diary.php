@@ -61,8 +61,9 @@ if(!$conn){
 
             textarea{
               font-size: 15px;
-            border-radius: 4px;
+              border-radius: 4px;
               box-sizing: border-box;
+              resize: none;
             }
 
             input[type=text]{
