@@ -154,7 +154,7 @@ if(!$conn){
             width: 45em;
             padding-top: 1em;
             padding-left: 0.3em;
-        }
+            }
             
         </style>
     </head>
@@ -218,7 +218,7 @@ if(!$conn){
 
 
                 <h2>Diary Entry:<h2>
-                <td><textarea class ="content" name ="content" cols="100" rows="20" id="diaryText" value=""></textarea></td>
+                <td><textarea class ="content" name ="content" cols="71" rows="20" id="diaryText" value=""></textarea></td>
 
                 <br><br>
                 <h2>How happy did you feel today?<h2>   
