@@ -120,7 +120,7 @@ if (isset($_POST["confirm"])) {
 			<br>
 			<br>
 			<input type="checkbox" id="terms" name="terms" value="terms" required><label for="checkbox" style="font-size: 15px; padding-left: 3px;">By creating an account you agree to our <a class="tnc" href ="javascript:void(0);" onclick="showterms()">Terms & Conditions</a>.</label>
-		    <p id="terms"></p>
+		    <p id="termsandconditions" class="text" style="padding-left: 20px; font-size: 18px;"></p>
 		    <input type="submit" value="Create Account">
 		</form>
 		<p class="text" style="text-align: center">or</p>
@@ -129,8 +129,7 @@ if (isset($_POST["confirm"])) {
 	</body>
 	<script type="text/javascript">
 		function showterms(){
-			console.log("function gets executed");
-			document.getElementById("terms").innerHTML="This project is by students of the University of Manchester for the course COMP10120 for the academic year of 2020/21. As such, we hold no liability for any issues that arise from this web application.<br/>It should be noted that any serious problems with mental health should not be self-treated or self-diagnosed. If you are finding it hard to deal with them, please look for professional advice. This website is not meant to serve as substitute.<br/>Data & Privacy<br/>We will not be sharing any of your personal information with outside sources.<br/>Cookies<br/>This website uses cookies but not for the purpose of storing personal information.";
+			document.getElementById("termsandconditions").innerHTML="<br><b>General Terms</b><br>This project is by students of the University of Manchester for the course COMP10120 for the academic year of 2020/21. As such, we hold no liability for any issues that arise from this web application.<br/>It should be noted that any serious problems with mental health should not be self-treated or self-diagnosed. If you are finding it hard to deal with them, please look for professional advice. This website is not meant to serve as substitute.<br/><b>Data & Privacy</b><br/>We will not be sharing any of your personal information with outside sources.<br/><b>Cookies</b><br/>This website uses cookies but not for the purpose of storing personal information.<br><br>";
 		}
 	</script>
 </html>
