@@ -34,8 +34,6 @@
         padding-top: 1em;
         padding-left: 1em;
         text-shadow: -1px 1px 4px #64aacb;
-        -ms-transform: translateY(50%);
-        transform: translateY(50%);
         }
     </style>
     <meta charset="UTF-8">
@@ -55,7 +53,7 @@
         <li style="float:right"><a class="active" href="Profile.php"><?php echo $current_username ?></a></li>
       </ul>
     </div>
-
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br>
     <div class="aboutus">
       <div id="box">
       <img class="aboutus" src="images/cloudu_white.svg">
