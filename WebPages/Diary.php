@@ -74,16 +74,16 @@ if(!$conn){
             .lineDiv {
                 position: relative;
                 height: 20px;      
-                background:linear-gradient(80deg,rgb(117, 187, 220),coral);
+                background:linear-gradient(80deg,rgb(115, 187, 220),rgb(255, 127, 80));
                 width: 380px;
                 margin: 60px auto;
             }
              
             .lineDiv .minBlock {
                 position: absolute;
-                top: -5px;
+                top: 0px;
                 left: 0;
-                width: 17px;
+                width: 20px;
                 height: 20px;
                 background: pink;
                 cursor: pointer
@@ -120,10 +120,8 @@ if(!$conn){
             #sliderBackground{
                 margin: 0 auto;
                 padding-top: 2px;
-                background-color: white;
                 width: 420px;
                 height: 100px;
-                border: 1px solid lightgrey;
             }
 
             .phrases{
@@ -222,8 +220,6 @@ if(!$conn){
 
                 <br><br>
                 <h2>How happy did you feel today?<h2>   
-                
-                <br>
                 <div id="sliderBackground">
                     <div id="lineDiv" class="lineDiv">
                         <div id="minBlock" class="minBlock">
@@ -231,8 +227,7 @@ if(!$conn){
                         </div>
                     </div>
                 </div>
-                <br>
-                <h2>Happiness Index: <span id="msg">0</span></h2>
+                <h3>Happiness Index: <span id="msg">0</span></h3>
                 <br> 
                 <input type="hidden" id="mood" name="mood" value="">
                 <button onclick="save()">Save</button>
