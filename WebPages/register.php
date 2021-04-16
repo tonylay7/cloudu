@@ -31,9 +31,6 @@ function checkdb($username, $email, $password){
 	$stmt->execute();
 	$result = $stmt->get_result();
 
-	// $sql = "SELECT `email`, `username` FROM `users` WHERE `username`='".$username."' OR `email`='".$email."'";
-	// $result = $conn->query($sql);
-
 	if($result->num_rows >= 1) {
 	    while($row = $result->fetch_assoc())
 	    {
@@ -122,12 +119,18 @@ if (isset($_POST["confirm"])) {
 			<input type="email" name="email" id="email" value="<?php echo $email;?>" required maxlength="40">
 			<br>
 			<br>
-			<input type="checkbox" id="terms" name="terms" value="terms" required><label for="checkbox" style="font-size: 15px; padding-left: 3px;">By creating an account you agree to our <a class="tnc">Terms & Conditions</a>.</label>
-		    <br>
+			<input type="checkbox" id="terms" name="terms" value="terms" required><label for="checkbox" style="font-size: 15px; padding-left: 3px;">By creating an account you agree to our <a class="tnc" href ="javascript:void(0);" onclick="showterms()">Terms & Conditions</a>.</label>
+		    <p id="terms"></p>
 		    <input type="submit" value="Create Account">
 		</form>
 		<p class="text" style="text-align: center">or</p>
 		<p class="text" style="padding: 22px; padding-top: 7px; font-size: 18px;">Already have an account? <a href="home.php">Sign in</a>.</p>
 	  </div>
 	</body>
+	<script type="text/javascript">
+		function showterms(){
+			console.log("function gets executed");
+			document.getElementById("terms").innerHTML="This project is by students of the University of Manchester for the course COMP10120 for the academic year of 2020/21. As such, we hold no liability for any issues that arise from this web application.<br/>It should be noted that any serious problems with mental health should not be self-treated or self-diagnosed. If you are finding it hard to deal with them, please look for professional advice. This website is not meant to serve as substitute.<br/>Data & Privacy<br/>We will not be sharing any of your personal information with outside sources.<br/>Cookies<br/>This website uses cookies but not for the purpose of storing personal information.";
+		}
+	</script>
 </html>
