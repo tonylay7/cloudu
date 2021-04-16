@@ -79,12 +79,11 @@ session_start();
   <div class="slideshow-container">
 	  <div class="mySlides fade">
 	  	<img class="welcome" src="images/cloudu_white.svg">
-	  	<br>
 	    <h1 class="welcome text">Welcome to CLOUDU!</h1>
 	  </div>
 
 	  <div class="mySlides fade">
-	    <img src="images/wordcloud_sample.jpg">
+	    <img style="width:100%; margin-top: 10px;" src="images/wordcloud.svg">
 	    <h1 class="slide text">Word Cloud</h1>
 	    <p class="slide text">Studies show that gratitude journaling is one of the best ways to improve your mental health and happiness levels!</p>
 	    <br>
@@ -92,11 +91,15 @@ session_start();
 	  </div>
 
 	  <div class="mySlides fade">
-	    <!-- insert image of diary and mood tracker -->
-	    <img src="images/wordcloud_sample.jpg">
+	  	<div class="promo-images">
+	      <img style="height:57%" src="images/diary.png">
+	      <img style="height:57%" src="images/moodgraph.png">
+		</div>
+		<div  style="float: bottom;">
 	    <h1 class="slide text">Diary and Mood Tracker</h1>
 	    <p class="slide text">Our website also has a diary for your daily thoughts and happiness level.</p>
 		<p class="slide text">This enables your very own mood tracker! You can use it to look for patterns in your mood over time.</p>
+		</div>
 	  </div>
 
 	  <div class="mySlides fade">

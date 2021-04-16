@@ -266,3 +266,12 @@ h1.register{
 .register-image{
   flex-basis: 0%;
 }
+
+.promo-images{
+  width:100%;
+  margin: 30px 40px;
+}
+
+.promo-images img{
+  float:left;
+}
