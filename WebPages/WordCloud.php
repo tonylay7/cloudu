@@ -49,6 +49,10 @@
     <link href="https://cdn.anychart.com/releases/v8/fonts/css/anychart-font.min.css" type="text/css" rel="stylesheet">
 
     <link rel="stylesheet" type="text/css" href="styles.css">
+    <link
+          href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap"
+          rel="stylesheet"
+        />
     <meta charset="UTF-8">
     <title>Word Cloud</title>
 

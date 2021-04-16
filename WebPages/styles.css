@@ -2,7 +2,13 @@
   margin: 0;
   padding: 0;
   box-sizing:border-box;
+  font-family: "Quicksand", sans-serif;
 }
+
+html{
+  font-size: 62.5%;
+}
+
 
 header {
 	height: 80px;
@@ -43,6 +49,7 @@ li a {
 	padding: 14px 25px;
 	text-decoration: none;
 	text-shadow: -1px 1px #64aacb;
+	font-size: 20px;
 }
 
 li a:hover:not(.active) {

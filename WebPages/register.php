@@ -91,6 +91,10 @@ if (isset($_POST["confirm"])) {
 	<head>
 		<meta charset="utf-8">
 		<link href= "home.css" rel="stylesheet" type="text/css">
+		<link
+          href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap"
+          rel="stylesheet"
+        />
 		<title>Register for CLOUDU</title>
 	</head>
 

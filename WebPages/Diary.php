@@ -48,6 +48,10 @@ if(!$conn){
         <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"/>
         <title>Diary</title>
         <link rel="stylesheet" type="text/css" href="styles.css">
+        <link
+            href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap"
+            rel="stylesheet"
+        />
         <style type="text/css">
             body{
               font-family: Arial
@@ -134,9 +138,9 @@ if(!$conn){
             background-color: rgb(137, 207, 240);
             box-shadow: 0px 5px 5px #549abb;
             border: 5px solid rgb(200, 220, 240, 0.7);
-            height: 53em;
+            height: 67em;
             width: 70em;
-            padding-top: 1.75em;
+            padding-top: 1em;
             padding-left: 0.3em;
         }
             
@@ -161,14 +165,14 @@ if(!$conn){
         <form name="diaryEntry" method="post" action="submitDiary.php">
         <button type="submit" disabled style="display: none" aria-hidden="true"></button>
             <td>
-                <h3><label class="start">Date:</label>
+                <h2><label class="start">Date:</label>
                 <input type="date" id="start" name="date" min="2021-01-01" max="2399-12-31" value="<?php echo date("Y-m-d"); ?>">
                 <button type="button" id="load" title="Load data for selected day">Load</button>
-                </h3>
+                </h2>
             </td>
             <br>
             <div id="box">
-                <td><h3>What are you grateful for today?<h3></td>
+                <td><h2>What are you grateful for today?<h2></td>
                 <br>
                 <div class="phrasescontainer" style="margin: 0 auto; width: 600px">
                     <button type="button" class="phrases" id="btn1" onclick="invis(this)"></button>
@@ -200,11 +204,11 @@ if(!$conn){
                 <br><br>
 
 
-                <h3>Diary Entry:<h3>
-                <td><textarea class ="content" name ="content" cols="130" rows="20" id="diaryText" value=""></textarea></td>
+                <h2>Diary Entry:<h2>
+                <td><textarea class ="content" name ="content" cols="100" rows="20" id="diaryText" value=""></textarea></td>
 
                 <br><br>
-                <h3>What would you rate your average mood for the day?<h3>   
+                <h2>How happy did you feel today?<h2>   
                 
                 <br>
                 <div id="sliderBackground">
@@ -215,7 +219,7 @@ if(!$conn){
                     </div>
                 </div>
                 <br>
-                <h3>Happiness Rating: <span id="msg">0</span></h3>
+                <h2>Happiness Index: <span id="msg">0</span></h2>
                 <br> 
                 <input type="hidden" id="mood" name="mood" value="">
                 <button onclick="save()">Save</button>
@@ -250,11 +254,8 @@ if(!$conn){
             });
 
             var current_date = <?php echo json_encode($_COOKIE["current_date"]); ?>;
-            if (current_date == -99){
-                load(<?php echo json_encode(date("Y-m-d")); ?>);
-            }else{
-                load(current_date);
-            }
+            load(current_date);
+            console.log(current_date);
 
             function load(loadDate){
                 console.log(loadDate);

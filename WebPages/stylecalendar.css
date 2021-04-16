@@ -1,19 +1,8 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: "Quicksand", sans-serif;
-}
-
-html {
-  font-size: 62.5%;
-}
-
 .container {
   width: 100%;
   height: 100vh;
   background-color: #74badbff;
-  color: #eee;
+  color: #114;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -22,7 +11,7 @@ html {
 .calendar {
   width: 45rem;
   height: 52rem;
-  background-color: #79bfe0;
+  background-color: white;
   box-shadow: 0 0.5rem 3rem rgba(0, 0, 0, 0.4);
 }
 
@@ -105,5 +94,5 @@ html {
 }
 
 .today {
-  background-color: #3399ff;
+  background-color: #89cff0;
 }

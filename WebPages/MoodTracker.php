@@ -24,6 +24,10 @@
 	<head>
 		<link rel="stylesheet" type="text/css" href="styles.css">
         <link rel="stylesheet" type="text/css" href="MoodTracker.css">
+        <link
+          href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap"
+          rel="stylesheet"
+        />
 		<meta charset="UTF-8">
 		<title>Mood Tracker</title>
 		<script src="../MoodTrackerTest/chart.js/dist/Chart.min.js"></script>
