@@ -253,7 +253,8 @@ if(!$conn){
                     load(loadDate);
             });
 
-            var current_date = document.cookie["current_date"];
+            var current_date = accessCookie("current_date");
+            console.log(current_date);
             load(current_date);
 
             function load(loadDate){
@@ -318,6 +319,19 @@ if(!$conn){
                     }
                 }
             });
+
+            function accessCookie(cookieName)
+            {
+              var name = cookieName + "=";
+              var allCookieArray = document.cookie.split(';');
+              for(var i=0; i<allCookieArray.length; i++)
+              {
+                var temp = allCookieArray[i].trim();
+                if (temp.indexOf(name)==0)
+                return temp.substring(name.length,temp.length);
+              }
+                return "";
+            }
 
 
             window.onload = function() {
