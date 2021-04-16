@@ -28,6 +28,7 @@
             background-color: rgb(137, 207, 240);
             box-shadow: 0px 5px 5px #549abb;
             border: 5px solid rgb(200, 220, 240, 0.7);
+            border-radius: 10px;
             height: 37em;
             width: 60em;
             padding-top: 1.75em;
@@ -39,6 +40,7 @@
             height: 33em;
             width: 56em;
             border: 2px solid darkgrey;
+            border-radius: 10px;
             background-color: white;
             padding: 25px;
             text-align: center;

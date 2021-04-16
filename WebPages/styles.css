@@ -25,6 +25,7 @@ ul {
 	width:100%;
 	position: fixed;
 	border: 5px solid rgb(200, 220, 240, 0.7);
+	border-radius: 10px;
 }
 
 li {
@@ -83,7 +84,6 @@ h1{
 	text-shadow: -1px 1px #549abb;
 }
 
-div.aboutus,
 div.resources{
   margin: 0;
   padding: 30px;

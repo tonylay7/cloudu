@@ -28,11 +28,14 @@
         background-color: rgb(137, 207, 240);
         box-shadow: 0px 5px 5px #549abb;
         border: 5px solid rgb(200, 220, 240, 0.7);
+        border-radius: 10px;
         height: 35em;
         width: 80em;
         padding-top: 1em;
         padding-left: 1em;
         text-shadow: -1px 1px 4px #64aacb;
+        -ms-transform: translateY(50%);
+        transform: translateY(50%);
         }
     </style>
     <meta charset="UTF-8">
