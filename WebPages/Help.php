@@ -46,6 +46,7 @@
         h1, p{
             color: rgb(137, 207, 240);
         }
+        
       </style>
     <meta charset="UTF-8">
     <title>Help Page</title>

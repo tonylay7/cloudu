@@ -22,6 +22,19 @@
       href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap"
       rel="stylesheet"
     />
+    <style type="text/css">
+      #box{
+        margin: 0 auto;
+        background-color: rgb(137, 207, 240);
+        box-shadow: 0px 5px 5px #549abb;
+        border: 5px solid rgb(200, 220, 240, 0.7);
+        height: 35em;
+        width: 80em;
+        padding-top: 1em;
+        padding-left: 1em;
+        text-shadow: -1px 1px 4px #64aacb;
+        }
+    </style>
     <meta charset="UTF-8">
     <title>Mood Tracker</title>
   </head>
@@ -41,13 +54,15 @@
     </div>
 
     <div class="aboutus">
+      <div id="box">
       <img class="aboutus" src="images/cloudu_white.svg">
       <h1>About Us</h1>
       <p>We are a group of students from the University of Manchester. Knowing that many people struggle with mental health on a daily basis, we made this web application with the aim of empowering people with tools for emotional management. With this website, hopefully you can use gratitude journaling to remind yourself every day of what brings you joy.</p>
       <br>
       <br>
       <h1>Contact Us</h1>
-      <p>If you have any questions, suggestions, or complaints, please drop us an email at cloudu.x6@gmail.com or visit the Help Section to submit a form.</p>
+      <p>If you have any questions, suggestions, or complaints, please drop us an email at <b>cloudu.x6@gmail.com</b> or visit the Help Section to submit a form.</p>
+      </div>
     </div>
 
   </body>
