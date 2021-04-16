@@ -170,6 +170,7 @@ if(!$conn){
             background-color: rgb(137, 207, 240);
             box-shadow: 0px 5px 5px #549abb;
             border: 5px solid rgb(200, 220, 240, 0.7);
+            border-radius: 10px;
             height: auto;
             width: 45em;
             padding: 15px;

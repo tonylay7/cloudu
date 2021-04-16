@@ -69,6 +69,8 @@
         height: 100%;
         margin: 0 auto;
         padding: 0;
+        border: 10px solid rgb(200, 220, 240, 0.7);
+        border-radius: 10px;
       }
       .container {
         height: 100px;

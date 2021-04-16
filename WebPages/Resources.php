@@ -51,21 +51,38 @@
 	    </div>
 		<!-- Main Part -->
 		<div class="resources">
-			<h1>External Resources</h1>
-			<p style="font-size: 135%">Below contains information about more professional mental health facilities.</p><br>
+			<h1 style="padding-left: 20px; margin-top: 70px;">External Resources</h1>
+            <p style="font-size: 135%; padding-left: 25px;">Below contains information about more professional mental health facilities.</p>
 
-			<h2>NHS</h2>
-			<p>The National Health Service of United Kingdom.<br>The NHS provides valuable information and support regarding mental health problems.<br>Also has quizzes that may help the person with their conditions.</p>
-			<p>Free listening services from trained volunteers, call: 116 123.</p>
-			<a href="https://www.nhs.uk/mental-health/">Click here for the main page.</a>
-			<br>
-			<a href="https://www.nhs.uk/mental-health/get-urgent-help-for-mental-health/">Click here for helplines.</a><br><br>
+            <h2>NHS</h2>
+            <p>The National Health Service of United Kingdom.<br>The NHS provides valuable information and support regarding mental health.<br>Has quizzes that may help the person with their conditions.</p>
+            <p>Free listening services from trained volunteers, call: 116 123.</p>
+            <a href="https://www.nhs.uk/mental-health/">Click here for the main page.</a>
+            <br>
+            <a href="https://www.nhs.uk/mental-health/get-urgent-help-for-mental-health/">Click here for helplines.</a>
 
-			<h2>WHO</h2>
-			<p>The World Health Organization.<br>The WHO contains a variety of different information regarding mental health.<br>Provides each country's mental health profile.</p>
-			<a href="https://www.who.int/health-topics/mental-health#tab=tab_1">Click here for the main page.</a>
-			<br>
-			<a href="https://www.who.int/mental_health/evidence/atlas/profiles-2017/en/">Click here for country profiles.</a>
+            <h2>WHO</h2>
+            <p>The World Health Organization.<br>The WHO contains a variety of different materials about mental health.<br>Provides each country's mental health profile.</p>
+            <a href="https://www.who.int/health-topics/mental-health#tab=tab_1">Click here for the main page.</a>
+            <br>
+            <a href="https://www.who.int/mental_health/evidence/atlas/profiles-2017/en/">Click here for country profiles.</a>
+            
+            <h2>MHA</h2>
+            <p>Mental Health America.<br>MHA provides professional and specific mental health quizzes.<br>The webpage contains details about all mental health conditions.</p>
+            <a href="https://screening.mhanational.org/screening-tools/">Click here for main page.</a>
+
+            <h2>NIMH</h2>
+            <p>The National Institute of Mental Health of USA.<br>NIMH contains lots of information about different subjects and categories.<br>Has a variety of research papers to read regarding health.</p>
+            <a href="https://www.nimh.nih.gov/health/index.shtml">Click here for main page.</a>
+
+            <h2>Patient</h2>
+            <p>Patient is an online community related to human health.<br>Has information about every aspect of human health.<br>There is a whole section dedicated to mental health.<br>The team and the
+            community is made from professional doctors around the world.</p>
+            <a href="https://patient.info/mental-health">Click here for main page.</a>
+
+            <h2>Positivity Blog</h2>
+            <p>The Positivity Blog is an online webpage dedicated to positivity.<br>Helps the user to practice being and thinking more positive through various courses.<br>The site provides you with the option to start a blog about yourself<br>where you can write about any positivity you want.</p>
+            <a href="https://www.positivityblog.com/about">Click here for main page.</a>
 		</div>
 
 	</body>
