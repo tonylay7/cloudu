@@ -65,12 +65,14 @@ if(!$conn){
               box-sizing: border-box;
               resize: none;
               width: 100%;
+              padding: 10px;
             }
 
             input[type=text]{
               font-size: 15px;
               border-radius: 4px;
               box-sizing: border-box;
+              padding: 10px;
             }
 
             input[type=date]{
