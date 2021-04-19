@@ -64,7 +64,8 @@
             <li><a href="Resources.php">Resources</a></li>
             <li><a href="Help.php">Help</a></li>
             <li><a href="AboutUs.php">About Us</a></li>
-            <li style="float:right"><a class="active" href="Profile.php"><?php echo $current_username ?></a></li>
+            <li style="float:right"><a class="logout" href="home.php">Logout</a></li>
+            <li style="float:right"><a href="Profile.php"><?php echo $current_username ?></a></li>
         </ul>
     </div>
     <br><br><br><br><br><br>
@@ -79,8 +80,8 @@
                 aim to support you with tools for emotional management. </p>
             <br>
             <div id="videoId">
-                <video  controls autoplay >
-                    <source src="test.mp4" type="video/mp4">
+                <video width="320" height="240" controls autoplay >
+                    <source src="intro.mp4" type="video/mp4">
                 </video>
             </div>
             <br>

@@ -97,7 +97,8 @@
         <li><a href="Resources.php">Resources</a></li>
         <li><a href="Help.php">Help</a></li>
         <li><a href="AboutUs.php">About Us</a></li>
-        <li style="float:right"><a class="active" href="Profile.php"><?php echo $current_username ?></a></li>
+        <li style="float:right"><a class="logout" href="home.php">Logout</a></li>
+        <li style="float:right"><a href="Profile.php"><?php echo $current_username ?></a></li>
       </ul>
     </div>
     <br><br><br><br> <!--TEMP FIX FOR STYLING ISSUE-->

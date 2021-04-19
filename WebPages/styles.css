@@ -52,10 +52,6 @@ li a:hover:not(.active) {
 	background-color: rgb(117, 187, 220);
 }
 
-.active {
-	background-color: #000000;
-}
-
 main {
 	margin: 0;
 	padding: 0;
