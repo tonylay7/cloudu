@@ -4,7 +4,7 @@
 This is a first year project which makes use of PHP, HTML, Javascript and CSS to create a series of tools designed to allow a user to document their thoughts and emotions. The application revolves around the idea of gratitude journalling in conjunction with mood tracking so that the user is able to see what they're most grateful for.
 
 Informational Video by Tony Lay
-<video src='https://drive.google.com/file/d/1lliDj9KhWyliE5_gcJ6E7UsFMCO0mooA/preview' width=640/>
+[![clouduVideo](https://img.youtube.com/vi/BZ9D8ioAJlM/0.jpg)](https://www.youtube.com/watch?v=BZ9D8ioAJlM)
 
 ## Table of Contents
 
